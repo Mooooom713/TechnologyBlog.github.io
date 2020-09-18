@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>Day 5之redux学习笔记及代码文件组织方式 | 二十岁的某一天</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="二十岁的某一天">
+    <meta name="author" content="MOMO">
+    <meta name="description" content="Love Life" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/TechnologyBlog.github.io/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="二十岁的某一天" type="application/atom+xml">
+    <link rel="stylesheet" href="/TechnologyBlog.github.io/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/TechnologyBlog.github.io/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/TechnologyBlog.github.io/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/TechnologyBlog.github.io/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/TechnologyBlog.github.io/js/html5shiv.min.js"></script>
+    <script src="/TechnologyBlog.github.io/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/TechnologyBlog.github.io/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/TechnologyBlog.github.io/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/TechnologyBlog.github.io/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+        <li>
+            <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a href="https://mooooom713.github.io/Animation/" target="_BLANK" class="animsition-link">MOMO的css动画</a>
+                </li>
+                
+                <li><a href="https://mooooom713.github.io/SauryQin/" target="_BLANK" class="animsition-link">汉诺塔小游戏</a>
+                </li>
+                
+                <li><a href="https://mooooom713.github.io/Doraemon/" target="_BLANK" class="animsition-link">一个div画哆啦A梦</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a href="/TechnologyBlog.github.io/categories/CSS/"
+                        class="animsition-link">CSS<small>(2)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/Git/"
+                        class="animsition-link">Git<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/HTML/"
+                        class="animsition-link">HTML<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/JavaScript/"
+                        class="animsition-link">JavaScript<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/今日份的学习/"
+                        class="animsition-link">今日份的学习<small>(6)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/学习笔记/"
+                        class="animsition-link">学习笔记<small>(8)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/实习/"
+                        class="animsition-link">实习<small>(9)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/实用/"
+                        class="animsition-link">实用<small>(15)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/盘点/"
+                        class="animsition-link">盘点<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/计算机网络/"
+                        class="animsition-link">计算机网络<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/面试/"
+                        class="animsition-link">面试<small>(2)</small></a></li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
+                
+            </ul>
+        </li>
+        
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+        <li><a href="javascript:;" class="popup-trigger" title="Search"><span class="search-icon"></span>Search</a></li>
+        
+        <li><a href="/TechnologyBlog.github.io/about.html" class="animsition-link" title="about">About</a></li>
+        <li><a href="/TechnologyBlog.github.io/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/TechnologyBlog.github.io" title="Logo" class="animsition-link">
+                         <img src="/TechnologyBlog.github.io/img/logo.png" alt="Logo" width="35px;" /> 
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/TechnologyBlog.github.io" class="animsition-link">二十岁的某一天</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        
+                        <li><a href="https://github.com/Mooooom713" title="Github" target="_blank"><i class="icon-github"></i></a>
+                        </li>
+                        
+                        
+                        <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i
+                                    class="icon-twitter"></i></a></li>
+                        
+                        
+                        <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                                    class="icon-facebook"></i></a></li>
+                        
+                        
+                        <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i
+                                    class="icon-google-plus"></i></a></li>
+                        
+                        
+                        <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i
+                                    class="icon-sina-weibo"></i></a></li>
+                        
+                        <li class="nolink"><span>Welcome!</span></li>
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <div class="learnmore sb-toggle-right">More</div>
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-07-26T09:04:47.000Z" itemprop="datePublished">
+          2018-07-26
+      </time>
+    
+    
+    | 
+    <a href='/TechnologyBlog.github.io/tags/实习/'>实习</a>
+    
+    
+</span>
+                <h1>Day 5之redux学习笔记及代码文件组织方式</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<script src="\TechnologyBlog.github.io\assets\js\APlayer.min.js"> </script><p>1.关于redux的action、reducer和store</p>
+<p>a.action：<br>1).是行为的抽象<br>2).是普通JS对象<br>3).一般由方法生成<br>4).必须有一个type属性</p>
+<p>b.reducer：<br>1).是响应的抽象<br>2).是纯方法<br>3).传入旧状态和action<br>3).返回新状态</p>
+<p>c.store:<br>1).action作用于store<br>2).reducer根据store响应<br>3).store是唯一的<br>4).store包括了完整的state<br>5).state完全可预测<br>6).store根据reducer生成</p>
+<p>2.在启动一个有redux的项目遇到的坑<br>之前在react-redux查找安装方式，官网给出的是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install react-redux --save</span><br></pre></td></tr></table></figure><br>但是启动的时候报错<br><img src="/TechnologyBlog.github.io/2018/07/26/Day-5之redux学习笔记及代码文件组织方式/1.png" title="one"><br>查找原因之后发现是因为还要先安装redux依赖，所以在项目中要使用redux的时候可以以前安装。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install redux react-redux --save</span><br></pre></td></tr></table></figure></p>
+<p>3.关于代码文件组织方式<br>a.按角色分（MVC框架）</p>
+<p>b.按功能组织（redux应用适合）<br>1).每个功能应该有一个固定的对外的接口文件，便于其他模块想要访问这个模块的时候通过这个模块暴露出来的接口访问不会影响这个模块里其他的模块，减少耦合<br>2).store状态树的设计<br>一个模块控制一个状态节点<br>避免数据冗余<br>树形结构扁平</p>
+<p>4.关于扩展操作符的补充<br>如果接受的参数是一个数组，返回想新增一个数组对象，就可以使用扩展操作符<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">return [</span><br><span class="line">    &#123;</span><br><span class="line">        id : action.id,</span><br><span class="line">        text : action.text,</span><br><span class="line">        completed : false</span><br><span class="line">    &#125;,</span><br><span class="line">    ...state</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>5.关于ref<br>为了获取DOM树上某个节点的value的时候方便，react用了一个ref，他是访问到组件内部DOM节点唯一可靠的方式，并且会自动销毁对子组件的引用。<br>用法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">refInput(node) &#123;</span><br><span class="line">    this.input = node;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">onSubmit(ev)&#123;</span><br><span class="line">    ev.preventDefault();</span><br><span class="line">    const input = this.input;</span><br><span class="line">    if(!input.value.trim())&#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    this.props.onAdd(input.value);</span><br><span class="line">    input.value =&quot;&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">render()&#123;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;form onSubmit=&#123;this.onSubmit&#125;&gt;</span><br><span class="line">                &lt;input ref=&#123;this.refInput&#125; /&gt;</span><br><span class="line">                &lt;button type=&quot;submit&quot;&gt;添加&lt;/button&gt;</span><br><span class="line">            &lt;/form&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>因为React的产生就是为了避免直接操作DOM元素，直接访问DOM元素很容易产生失控的情况。<br>可以改成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">onInputChange(event)&#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">        value : event.target.value</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">onSubmit(ev)&#123;</span><br><span class="line">    ev.preventDefault();</span><br><span class="line">    const inputValue = this.state.value;</span><br><span class="line">    if(!inputValue.trim())&#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    this.props.onAdd(inputValue);</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">        value : &apos;&apos;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">render()&#123;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;form onSubmit=&#123;this.onSubmit&#125;&gt;</span><br><span class="line">                &lt;input onChange=&#123;this.onInputChange&#125; value=&#123;this.state.value&#125; /&gt;</span><br><span class="line">                &lt;button type=&quot;submit&quot;&gt;添加&lt;/button&gt;</span><br><span class="line">            &lt;/form&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>6.关于filter方法<br>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.filter(function(currentValue,index,arr), thisValue)</span><br></pre></td></tr></table></figure><br>currentValue ： 必须，当前元素的值<br>index ： 可选，当前元素的索引<br>arr ： 可选，当前元素属于的数组对象<br>thisValue ： 可选，对象作为该执行回调时使用，传递给函数，用作 “this” 的值。<br>如果省略了 thisValue ，”this” 的值为 “undefined”</p>
+<p>7.object.assign()方法<br>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.assign(target, ...sources)</span><br></pre></td></tr></table></figure><br>target：目标对象<br>sources：源对象<br>返回值是一个对象</p>
+<p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const object1 = &#123;</span><br><span class="line">  a: 1,</span><br><span class="line">  b: 2,</span><br><span class="line">  c: 3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const object2 = Object.assign(&#123;c: 4, d: 5&#125;, object1);</span><br><span class="line"></span><br><span class="line">console.log(object2.c, object1.c);   // expected output: 3 3</span><br></pre></td></tr></table></figure><br>注意：针对深拷贝，需要使用其他方法，因为 Object.assign()拷贝的是属性值。假如源对象的属性值是一个指向对象的引用，它也只拷贝那个引用值。</p>
+<p>还可以合并相同属性对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var o1 = &#123; a: 1, b: 1, c: 1 &#125;;</span><br><span class="line">var o2 = &#123; b: 2, c: 2 &#125;;</span><br><span class="line">var o3 = &#123; c: 3 &#125;;</span><br><span class="line"></span><br><span class="line">var obj = Object.assign(&#123;&#125;, o1, o2, o3);</span><br><span class="line">console.log(obj); //   &#123; a: 1, b: 2, c: 3 &#125;</span><br></pre></td></tr></table></figure></p>
+<p>8.trim()方法<br>trim() 方法会从一个字符串的两端删除空白字符。在这个上下文中的空白字符是所有的空白字符 (space, tab, no-break space 等) 以及所有行终止符字符（如 LF，CR）。<br>返回值是一个新的字符串，不影响源字符串</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/TechnologyBlog.github.io/2018/08/06/Day-6之新get的一些知识点/" style="float: left;">
+        ← Day 6之新get的一些知识点
+    </a>
+    
+    
+    <a class="pull-right" href="/TechnologyBlog.github.io/2018/07/25/Day-4之Redux学习笔记/">
+        Day 4之Redux学习笔记 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By MOMO. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/Mooooom713" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/TechnologyBlog.github.io/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/TechnologyBlog.github.io/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/TechnologyBlog.github.io/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/TechnologyBlog.github.io/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+            <style>
+.local-search-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: rgba(255, 255, 255, .9);
+  color: #333;
+  z-index: 9999;
+  border-radius: 5px;
+  overflow: scroll;
+}
+#local-search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #151515;
+  background-color: initial;
+}
+.search-result-list {
+  list-style: none;
+  padding-left: 0;
+}
+.search-result-list > li {
+  margin-top: 15px;
+  border-bottom: 1px solid #ddd;
+  transition: all ease .3s;
+}
+.search-result-list > li:hover {
+  border-bottom: 1px solid gray;
+}
+.search-result-title {
+  font-size: 16px;
+}
+.search-result {
+  line-height: 20px;
+}
+.search-keyword {
+  font-weight: normal;
+  color: #c00;
+}
+
+@media (min-width: 890px) {
+  .popup-btn-close {
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    border: 1px solid #151515;
+    padding: 0px 10px;
+    border-top-left-radius: 8px;
+    cursor: pointer;
+    transition: all ease .3s;
+  }
+  .popup-btn-close:hover {
+    background: #151515;
+    opacity: .9;
+    color: #fff;
+  }
+}
+@media (max-width: 890px) {
+  .popup-btn-close {
+    font-size: 0;
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px #888;
+    cursor: pointer;
+  }
+  .popup-btn-close::after {
+    content: '←';
+    color: #151515;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+  }
+}
+</style>
+
+<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="local-search-header clearfix">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+          <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+        </div>
+      </div>
+      <div id="local-search-result"></div>
+    </div>
+  </div>
+</div>
+
+<script src="/TechnologyBlog.github.io/js/ziploader.js"></script>
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // get search zip version
+    $.get('/TechnologyBlog.github.io/searchVersion.txt?t=' + (+new Date()), function(res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson () {
+      initLoad(['/TechnologyBlog.github.io/search.zip'], {
+        loadOptions: {
+          success: function(obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function(e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions:{
+          'json':'application/json'
+        }
+      })
+    }
+
+
+    // search function;
+    var searchFunc = function(search_id, content_id) {
+      'use strict';
+
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function() {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function(data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title ? data.title.trim() : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content ? data.content.trim().replace(/<[^>]+>/g,"") : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function(keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0, position = [], index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+
+            // show search results
+
+            if (isMatch) {
+              // sort index by position of keyword
+
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+
+              // merge hits into slices
+
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+
+                  // move to next position of hit
+
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {
+                  hits: hits,
+                  start: start,
+                  end: end,
+                  searchTextCount: searchTextCountInSlice
+                };
+              }
+
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if(start < 0){
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if(end > content.length){
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+
+              // sort slices in content by search text's count and hits' count
+
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+
+              // select top N slices in content
+
+              var upperBound = parseInt('2');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+
+              // highlight title and content
+
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+
+              var resultItem = '';
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+              } else {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+              }
+
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "'>" +
+                  "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                  "...</p>" + "</a>";
+              });
+
+              resultItem += "</li>";
+              resultItems.push({
+                item: resultItem,
+                searchTextCount: searchTextCount,
+                hitCount: hitCount,
+                id: resultItems.length
+              });
+            }
+          })
+        };
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<ul class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</ul>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+
+      // remove loading animation
+      $('body').css('overflow', '');
+
+      proceedsearch();
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        $('.sb-close').click();
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+      
+</body>
+</html>

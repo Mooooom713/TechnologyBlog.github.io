@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>深入理解js原型和闭包笔记 | 二十岁的某一天</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="二十岁的某一天">
+    <meta name="author" content="MOMO">
+    <meta name="description" content="Love Life" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/TechnologyBlog.github.io/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="二十岁的某一天" type="application/atom+xml">
+    <link rel="stylesheet" href="/TechnologyBlog.github.io/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/TechnologyBlog.github.io/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/TechnologyBlog.github.io/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/TechnologyBlog.github.io/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/TechnologyBlog.github.io/js/html5shiv.min.js"></script>
+    <script src="/TechnologyBlog.github.io/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/TechnologyBlog.github.io/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/TechnologyBlog.github.io/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/TechnologyBlog.github.io/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+        <li>
+            <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a href="https://mooooom713.github.io/Animation/" target="_BLANK" class="animsition-link">MOMO的css动画</a>
+                </li>
+                
+                <li><a href="https://mooooom713.github.io/SauryQin/" target="_BLANK" class="animsition-link">汉诺塔小游戏</a>
+                </li>
+                
+                <li><a href="https://mooooom713.github.io/Doraemon/" target="_BLANK" class="animsition-link">一个div画哆啦A梦</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a href="/TechnologyBlog.github.io/categories/CSS/"
+                        class="animsition-link">CSS<small>(2)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/Git/"
+                        class="animsition-link">Git<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/HTML/"
+                        class="animsition-link">HTML<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/JavaScript/"
+                        class="animsition-link">JavaScript<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/今日份的学习/"
+                        class="animsition-link">今日份的学习<small>(6)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/学习笔记/"
+                        class="animsition-link">学习笔记<small>(8)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/实习/"
+                        class="animsition-link">实习<small>(9)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/实用/"
+                        class="animsition-link">实用<small>(15)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/盘点/"
+                        class="animsition-link">盘点<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/计算机网络/"
+                        class="animsition-link">计算机网络<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/面试/"
+                        class="animsition-link">面试<small>(2)</small></a></li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
+                
+            </ul>
+        </li>
+        
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+        <li><a href="javascript:;" class="popup-trigger" title="Search"><span class="search-icon"></span>Search</a></li>
+        
+        <li><a href="/TechnologyBlog.github.io/about.html" class="animsition-link" title="about">About</a></li>
+        <li><a href="/TechnologyBlog.github.io/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/TechnologyBlog.github.io" title="Logo" class="animsition-link">
+                         <img src="/TechnologyBlog.github.io/img/logo.png" alt="Logo" width="35px;" /> 
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/TechnologyBlog.github.io" class="animsition-link">二十岁的某一天</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        
+                        <li><a href="https://github.com/Mooooom713" title="Github" target="_blank"><i class="icon-github"></i></a>
+                        </li>
+                        
+                        
+                        <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i
+                                    class="icon-twitter"></i></a></li>
+                        
+                        
+                        <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                                    class="icon-facebook"></i></a></li>
+                        
+                        
+                        <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i
+                                    class="icon-google-plus"></i></a></li>
+                        
+                        
+                        <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i
+                                    class="icon-sina-weibo"></i></a></li>
+                        
+                        <li class="nolink"><span>Welcome!</span></li>
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <div class="learnmore sb-toggle-right">More</div>
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-10-12T02:27:28.000Z" itemprop="datePublished">
+          2018-10-12
+      </time>
+    
+    
+    | 
+    <a href='/TechnologyBlog.github.io/tags/学习笔记/'>学习笔记</a>
+    
+    
+</span>
+                <h1>深入理解js原型和闭包笔记</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<script src="\TechnologyBlog.github.io\assets\js\APlayer.min.js"> </script><h2 id="一切都是对象"><a href="#一切都是对象" class="headerlink" title="一切都是对象"></a>一切都是对象</h2><h3 id="对象就是属性的集合。在js里对象里只有属性没有方法，因为方法也是一种属性"><a href="#对象就是属性的集合。在js里对象里只有属性没有方法，因为方法也是一种属性" class="headerlink" title="对象就是属性的集合。在js里对象里只有属性没有方法，因为方法也是一种属性"></a>对象就是属性的集合。在js里对象里只有属性没有方法，因为方法也是一种属性</h3><hr>
+<h2 id="函数和对象的关系"><a href="#函数和对象的关系" class="headerlink" title="函数和对象的关系"></a>函数和对象的关系</h2><h3 id="对象都是通过函数创建的，而函数又是一种对象"><a href="#对象都是通过函数创建的，而函数又是一种对象" class="headerlink" title="对象都是通过函数创建的，而函数又是一种对象"></a>对象都是通过函数创建的，而函数又是一种对象</h3><hr>
+<h2 id="prototype原型"><a href="#prototype原型" class="headerlink" title="prototype原型"></a>prototype原型</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>) </span>&#123; &#125;</span><br><span class="line">Fn.prototype.name = <span class="string">'Joie'</span>;</span><br><span class="line">Fn.prototype.getYear = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1997</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">new</span> Fn();</span><br></pre></td></tr></table></figure>
+<h3 id="上面代码片段中fn-proto-Fn-prototype也就是说实例化对象的隐式原型全等于创建这个对象的函数的显示原型"><a href="#上面代码片段中fn-proto-Fn-prototype也就是说实例化对象的隐式原型全等于创建这个对象的函数的显示原型" class="headerlink" title="上面代码片段中fn.__proto__ === Fn.prototype也就是说实例化对象的隐式原型全等于创建这个对象的函数的显示原型"></a>上面代码片段中<code>fn.__proto__ === Fn.prototype</code>也就是说实例化对象的隐式原型全等于创建这个对象的函数的显示原型</h3><hr>
+<h2 id="隐式原型"><a href="#隐式原型" class="headerlink" title="隐式原型"></a>隐式原型</h2><h3 id="每个对象都有一个显式原型和隐式原型，函数也是。同时每个对象的-proto-属性，指向创建该对象的函数的prototype。"><a href="#每个对象都有一个显式原型和隐式原型，函数也是。同时每个对象的-proto-属性，指向创建该对象的函数的prototype。" class="headerlink" title="每个对象都有一个显式原型和隐式原型，函数也是。同时每个对象的__proto__属性，指向创建该对象的函数的prototype。"></a>每个对象都有一个显式原型和隐式原型，函数也是。同时每个对象的<code>__proto__</code>属性，指向创建该对象的函数的prototype。</h3><img src="/TechnologyBlog.github.io/2018/10/12/深入理解js原型和闭包笔记/1.png" title="one">
+<ul>
+<li><p>但是<code>Object.prototype</code>是一个特例，它的<code>__proto__</code>指向的是null！！！</p>
+</li>
+<li><p><code>Function.__proto__</code>指向<code>Function.prototype</code>形成一个循环</p>
+</li>
+</ul>
+<hr>
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><h3 id="对于值类型的判断可以用typeof，但是对于引用类型的判断需要instanceof。"><a href="#对于值类型的判断可以用typeof，但是对于引用类型的判断需要instanceof。" class="headerlink" title="对于值类型的判断可以用typeof，但是对于引用类型的判断需要instanceof。"></a>对于值类型的判断可以用typeof，但是对于引用类型的判断需要instanceof。</h3><h4 id="instanceof的判断规则：沿着A的-proto-这条线来找，同时沿着B的prototype这条线来找，如果两条线能找到同一个引用，即同一个对象，那么就返回true，如果找到终点还未重合，则返回false。"><a href="#instanceof的判断规则：沿着A的-proto-这条线来找，同时沿着B的prototype这条线来找，如果两条线能找到同一个引用，即同一个对象，那么就返回true，如果找到终点还未重合，则返回false。" class="headerlink" title="instanceof的判断规则：沿着A的__proto__这条线来找，同时沿着B的prototype这条线来找，如果两条线能找到同一个引用，即同一个对象，那么就返回true，如果找到终点还未重合，则返回false。"></a>instanceof的判断规则：沿着A的<code>__proto__</code>这条线来找，同时沿着B的<code>prototype</code>这条线来找，如果两条线能找到同一个引用，即同一个对象，那么就返回true，如果找到终点还未重合，则返回false。</h4><hr>
+<h2 id="原型链与继承"><a href="#原型链与继承" class="headerlink" title="原型链与继承"></a>原型链与继承</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123; &#125;</span><br><span class="line"><span class="keyword">var</span> f1 = <span class="keyword">new</span> Foo();</span><br><span class="line"></span><br><span class="line">f1.a = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">Foo.prototype.a = <span class="number">100</span>;</span><br><span class="line">Foo.prototype.b = <span class="number">200</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(f1.a);  <span class="comment">// 10</span></span><br><span class="line"><span class="built_in">console</span>.log(f1.b);  <span class="comment">// 200</span></span><br></pre></td></tr></table></figure>
+<h3 id="访问一个对象的属性时，先在基本属性中查找，如果没有，再沿着-proto-这条链向上找，这就是原型链。"><a href="#访问一个对象的属性时，先在基本属性中查找，如果没有，再沿着-proto-这条链向上找，这就是原型链。" class="headerlink" title="访问一个对象的属性时，先在基本属性中查找，如果没有，再沿着__proto__这条链向上找，这就是原型链。"></a>访问一个对象的属性时，先在基本属性中查找，如果没有，再沿着<code>__proto__</code>这条链向上找，这就是原型链。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> item <span class="keyword">in</span> f1)&#123;</span><br><span class="line">    <span class="keyword">if</span>(f1.hasOwnProperty(item))&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(item);  <span class="comment">// a</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="如果要区分一个属性到底是基本的还是从原型中找到的，可以用hasOwnProperty特别是在for-in-循环中"><a href="#如果要区分一个属性到底是基本的还是从原型中找到的，可以用hasOwnProperty特别是在for-in-循环中" class="headerlink" title="如果要区分一个属性到底是基本的还是从原型中找到的，可以用hasOwnProperty特别是在for...in...循环中"></a>如果要区分一个属性到底是基本的还是从原型中找到的，可以用<code>hasOwnProperty</code>特别是在<code>for...in...</code>循环中</h4><h4 id="但是f1的hasOwnProperty方法是从哪里来的呢？f1本身没有，Foo-prototype中也没有。不难发现其实它是从Object-prototype中来的。"><a href="#但是f1的hasOwnProperty方法是从哪里来的呢？f1本身没有，Foo-prototype中也没有。不难发现其实它是从Object-prototype中来的。" class="headerlink" title="但是f1的hasOwnProperty方法是从哪里来的呢？f1本身没有，Foo.prototype中也没有。不难发现其实它是从Object.prototype中来的。"></a>但是f1的<code>hasOwnProperty</code>方法是从哪里来的呢？f1本身没有，<code>Foo.prototype</code>中也没有。不难发现其实它是从<code>Object.prototype</code>中来的。</h4><ul>
+<li><p>由于所有的对象的原型链都会找到<code>Object.prototype</code>，因此所有的对象都会有<code>Object.prototype</code>的方法。这就是所谓的<code>继承</code></p>
+</li>
+<li><p>再例如所有函数都有<code>call</code>、<code>apply</code>方法，都有<code>length</code>、<code>arguments</code>、<code>caller</code>等属性。为什么会有呢，就是因为<code>继承</code>。函数是由<code>Function</code>函数创建的，因此继承的<code>Function.prototype</code>中的方法。</p>
+</li>
+</ul>
+<hr>
+<h2 id="原型的灵活"><a href="#原型的灵活" class="headerlink" title="原型的灵活"></a>原型的灵活</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">10</span> , <span class="attr">b</span>:<span class="number">20</span>&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.toString()); <span class="comment">// [object Object]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="literal">true</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.toString()); <span class="comment">//1, 2, true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>继承的方法不合适，可以做出修改。如上Object和array的toString()方法不一样，肯定是<code>Array.prototype.toString()</code>方法做了修改。</p>
+</li>
+<li><p>内置方法的原型属性可以手动添加和自定义，所以在添加之前最好先做一次判断，判断这个属性是否本来就存在。</p>
+</li>
+</ul>
+<hr>
+<h2 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// a is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这是因为浏览器的预解析的机制，当预解析到var的时候，默认给一个undefined，执行的时候才会去读赋的值。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// Window&#123;top: Window, window:...&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>无论在那个位置获取<code>this</code>都是有值得。但是<code>this</code>和变量不同，在预解析的时候变量之声明不赋值，但是<code>this</code>会直接赋值。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(f1); <span class="comment">// function f1()&#123;&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;&#125;; <span class="comment">//函数声明</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(f2); <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">var</span> f2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;; <span class="comment">//函数表达式</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>对于函数，对待函数表达式就像变量一样，对待函数声明时，却把整个函数赋值了。</p>
+</li>
+<li><p>函数每被调用一次，都会产生一个新的执行上下文环境，因为不同的调用可能会有不同的参数。</p>
+</li>
+<li><p>且函数在定义的时候（不是在调用的时候），就已经确定了函数体内部自由变量的作用域。</p>
+</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>变量、函数表达式   —  变量声明默认赋值undefined</li>
+<li>this — 赋值</li>
+<li>函数声明 — 赋值</li>
+<li>如果代码段是函数体，那么arguments和自由变量的取值作用域都是赋值</li>
+</ul>
+<h4 id="这三种数据的准备情况被称之为“执行上下文”或者“执行上下文环境”"><a href="#这三种数据的准备情况被称之为“执行上下文”或者“执行上下文环境”" class="headerlink" title="这三种数据的准备情况被称之为“执行上下文”或者“执行上下文环境”"></a>这三种数据的准备情况被称之为“执行上下文”或者“执行上下文环境”</h4><h5 id="执行上下文环境的通俗定义就是：在执行代码之前，把将要用到的所有的变量都事先拿出来，有的直接赋值了，有的先用undefined占个空"><a href="#执行上下文环境的通俗定义就是：在执行代码之前，把将要用到的所有的变量都事先拿出来，有的直接赋值了，有的先用undefined占个空" class="headerlink" title="执行上下文环境的通俗定义就是：在执行代码之前，把将要用到的所有的变量都事先拿出来，有的直接赋值了，有的先用undefined占个空"></a>执行上下文环境的通俗定义就是：在执行代码之前，把将要用到的所有的变量都事先拿出来，有的直接赋值了，有的先用undefined占个空</h5><hr>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><h3 id="在函数中this到底取何值，是在函数真正被调用执行的时候确定的，函数定义的时候确定不了。因为this的取值是执行上下文环境的一部分，每次调用函数，都会产生一个新的执行上下文环境"><a href="#在函数中this到底取何值，是在函数真正被调用执行的时候确定的，函数定义的时候确定不了。因为this的取值是执行上下文环境的一部分，每次调用函数，都会产生一个新的执行上下文环境" class="headerlink" title="在函数中this到底取何值，是在函数真正被调用执行的时候确定的，函数定义的时候确定不了。因为this的取值是执行上下文环境的一部分，每次调用函数，都会产生一个新的执行上下文环境"></a>在函数中this到底取何值，是在函数真正被调用执行的时候确定的，函数定义的时候确定不了。因为this的取值是执行上下文环境的一部分，每次调用函数，都会产生一个新的执行上下文环境</h3><ul>
+<li>构造函数</li>
+</ul>
+<p>所谓构造函数就是用来<code>new</code>一个对象的函数。严格来讲所有的函数都可以<code>new</code>一个对象，但是有些函数的定义就是为了去<code>new</code>一个对象，而有些函数则不是。PS： 构造函数的函数名第一个字母大写（规则约定）。如：Object、Array、Function等等。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">"Joie"</span>;</span><br><span class="line">    <span class="keyword">this</span>.year = <span class="number">1997</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// Foo  name: "Joie"  year: 1997  __proto__: Object</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f1 = <span class="keyword">new</span> Foo();</span><br></pre></td></tr></table></figure>
+<p>那么在构造函数的<code>prototype</code>中，<code>this</code>代表什么</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">"Joie"</span>;</span><br><span class="line">    <span class="keyword">this</span>.year = <span class="number">1997</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Fn.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f1 = <span class="keyword">new</span> Fn();</span><br><span class="line">f1.getName();   <span class="comment">// Joie</span></span><br></pre></td></tr></table></figure>
+<p>可以在上面的代码中看出来<code>this</code>指向了<code>f1</code>这个对象。<br><code>其实，不仅仅是构造函数prototype，即便是在整个原型链中，this代表的也都是当前对象的值。</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">"Joie"</span>;</span><br><span class="line">    <span class="keyword">this</span>.year = <span class="number">1997</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// Window &#123;postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …&#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Foo();</span><br></pre></td></tr></table></figure>
+<p>由上面的代码可以看出来，当Foo函数作为构造函数的时候，其中的this就代表它即将new出来的对象。<br>而直接调用Foo函数时，其中的this就是window</p>
+<ul>
+<li>函数作为对象的一个属性</li>
+</ul>
+<p>如果函数作为对象的一个属性时，并且作为对象的一个属性被调用时，函数中的this指向该对象。而不作为函数的属性被调用那么this的值就会之window</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    x  : <span class="number">10</span>,</span><br><span class="line">    fn : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// &#123;x: 10, fn: ƒ&#125;  fn: ƒ ()   x: 10   __proto__: Object</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.x); <span class="comment">// 10</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.fn();</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    x  : <span class="number">10</span>,</span><br><span class="line">    fn : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//  Window &#123;postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …&#125;</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.x); <span class="comment">// undefined</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f1 = obj.fn;</span><br><span class="line">f1();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>函数用call或者apply调用</li>
+</ul>
+<p>当函数被call和apply调用时，this的值就取传入的对象的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    x : <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// &#123;x: 10&#125;  x: 10  __proto__: Object</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.x); <span class="comment">// 10</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn.call(obj);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>全局和普通调用函数</li>
+</ul>
+<p>在全局环境下，this永远是window</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span> === <span class="built_in">window</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>普通函数在调用的时候其中的this也都是window，但也有需要注意的情况</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// Window &#123;postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …&#125;</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.x); <span class="comment">// 10</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    x : <span class="number">10</span>,</span><br><span class="line">    fn : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// Window &#123;postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …&#125;</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.x); <span class="comment">// undefined</span></span><br><span class="line">        &#125;</span><br><span class="line">        f1();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.fn();</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="执行上下文栈"><a href="#执行上下文栈" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h2><p>执行上下文栈就是一个压栈和出栈的过程，流程如图：<br><img src="/TechnologyBlog.github.io/2018/10/12/深入理解js原型和闭包笔记/2.png" title="two"></p>
+<p>执行全局代码时，会产生一个执行上下文环境，每次调用函数又会产生执行上下文环境。当函数完成时，这个上下文环境以及其中的数据都会被销毁，再重新回到全局上下文环境。</p>
+<p><a href="!http://www.cnblogs.com/wangfupeng1988/p/3989357.html">具体参考博客–深入理解javascript原型和闭包（11）——执行上下文栈</a></p>
+<hr>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>es6之前JavaScript没有块级作用域，JavaScript除了全局作用域之外，只有函数可以创建作用域。是因为<code>var</code>的变量提升，在<code>if</code>语句或者<code>for()</code>括号内定义的变量在块外部也可以访问到。但在es6之后用<code>let</code>和<code>const</code>声明变量就只在所在的块有效了。所谓的块就是<code>{}</code>大括号里的语句。</p>
+<ul>
+<li><p>作用域是一个抽象概念类似于一个地盘</p>
+</li>
+<li><p>作用域有上下级关系，上下级关系确定就看是在哪个作用域下创建的</p>
+</li>
+<li><p>作用域最大的用处就是隔离变量，不同作用域下同名变量不会有冲突。</p>
+</li>
+</ul>
+<hr>
+<h2 id="作用域和上下文环境"><a href="#作用域和上下文环境" class="headerlink" title="作用域和上下文环境"></a>作用域和上下文环境</h2><ul>
+<li>作用域在函数定义时就已经确定了。而不是在函数调用时确定。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>,</span><br><span class="line">    b = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">100</span>,</span><br><span class="line">        b = <span class="number">300</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">br</span> (<span class="params">x</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> a = <span class="number">1000</span>,</span><br><span class="line">            b = <span class="number">4000</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    br(<span class="number">100</span>);</span><br><span class="line">    br(<span class="number">200</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>整个执行流程：确定全局上下文环境 -&gt; 在调用fn时，生成fn函数的上下文环境 -&gt; 压栈 -&gt; 并将此上下文环境设为活动状态 -&gt; 执行完之后销毁上下文环境（调用br的时候，也是类似流程）</p>
+</li>
+<li><p>作用域只是一个抽象感念，类似于地盘，其中没有变量。变量要通过作用域对应的执行上下文环境来获得变量的取值。</p>
+</li>
+<li><p>作用域中变量的值是在执行过程中产生和确定的，而作用于是在函数创建的时候就确定了。</p>
+</li>
+<li><p>如果要查找一个作用域下某个变量的值，就需要找到这个作用域对应的执行上下文环境，再在其中寻找变量的值。</p>
+</li>
+</ul>
+<hr>
+<h2 id="从自由变量到作用域链"><a href="#从自由变量到作用域链" class="headerlink" title="从自由变量到作用域链"></a>从自由变量到作用域链</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">20</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(x); <span class="comment">//x在这里就是一个自由变量</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>b的值是可以直接在fn的作用域中去取的，因为b就是在这里定义的。x的取值就需要到另一个作用域中去取。</p>
+</li>
+<li><p>具体是那个作用域呢，不应该描述为父作用域，有些情况下会产生歧义。应该是到创建这个函数的那个作用域中去取值，而不是调用这个函数的作用域去取值。这就是所谓的<code>静态作用域</code>。</p>
+</li>
+<li><p>上段代码描述的只是跨一步作用域去寻找，如果跨一步没有找到就接着跨，一直跨到全局作用域为止。要是全局作用域都没有找到，那就真的没有了。而这一步步跨域的“路线”就是我们所说的作用域链。</p>
+</li>
+</ul>
+<p>取自由变量时的“作用域链”过程：</p>
+<ol>
+<li>在当前作用域查找<code>a</code>,如果有则获取并结束,如果没有则继续。</li>
+<li>如果当前作用域是全局作用域，则证明<code>a</code>未被定义并结束，否则继续。</li>
+<li>(不是全局作用域，那就是函数作用域)将创建该函数的作用域当做当前作用域。</li>
+<li>调到第一步。</li>
+</ol>
+<hr>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>在MDN中，作者将闭包这样定义：<code>闭包是函数和声明该函数的词法环境的组合</code>。</p>
+<p>具体说起来有两种应用情况：</p>
+<ul>
+<li>函数作为返回值</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> max = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">gn</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x &gt; max)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f1 = fn();</span><br><span class="line">f1(<span class="number">15</span>);</span><br></pre></td></tr></table></figure>
+<p>上段代码在执行<code>f1(15)</code>时用到了<code>fn()</code>作用域下的变量<code>max</code>的值。</p>
+<ul>
+<li>函数作为参数被传递</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> max = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x &gt; max)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(x);  <span class="comment">// 15</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">f</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> max = <span class="number">100</span>;</span><br><span class="line">    f(<span class="number">15</span>);</span><br><span class="line">&#125;)(fn);</span><br></pre></td></tr></table></figure>
+<p>上段代码中，<code>fn</code>函数作为一个参数被传递进入另一个函数，赋值给参数<code>f</code>。然而在执行<code>f</code>的时候，变量<code>max</code>的取值是10而不是100。这就是因为上一小结所说的查找自由变量的取值时，是从创建这个函数的作用域去找而不是调用这个函数的作用域中去找。</p>
+<p>在讲闭包时，除了联系作用域以外还要结合上下文执行栈。</p>
+<p>在之前的上下执行栈中讲到有些情况下，当函数调用完之后，其执行上下文环境不会接着被销毁，这就是需要理解闭包的核心内容。</p>
+<p><a href="!https://www.cnblogs.com/wangfupeng1988/p/3994065.html">详细内容见博客</a></p>
+<p>在函数返回一个函数这种闭包中，因为返回的是一个函数，函数的特殊之处在于他会创建一个独立的作用域，而他内部的变量也有可能有自由变量，因此包含返回函数的这个函数的执行上下文是不会被注销的，因为返回的函数需要顺着他之前的这个函数的执行上下文环境去获取这个自由变量。</p>
+<p>由于在产生闭包的时候该销毁的执行上下文环境没有被销毁，所以可以很明显的看出闭包会增加内容的开销。</p>
+<p>所以闭包和作用域及上下文环境有着密不可分的关系。</p>
+<hr>
+<p>总结：</p>
+<ul>
+<li>上下文环境：</li>
+</ul>
+<blockquote>
+<p>可以理解为一个看不见摸不着的对象（有若干个属性），虽然看不见摸不着，但确确实实存在，因为所有的变量都在里面存储着。</p>
+</blockquote>
+<ul>
+<li>作用域：</li>
+</ul>
+<blockquote>
+<p>是抽象的。其次除了全局作用域，只有函数才能创建作用域。创建一个函数就创建了一个作用域，无论调用不调用，函数只要创建了，它就有独立的作用域，就有自己的一个“地盘”。</p>
+</blockquote>
+<ul>
+<li>两者对比：</li>
+</ul>
+<blockquote>
+<p>一个作用域下可能有若干个上下文环境，有可能从来没有过上下文环境（函数从来没有被调用过）。有可能用过，现在函数被调用完了，上下文环境被销毁了，也有可能存在一个或多个闭包。再精简一下就是<code>作用域是静态的组织结构，上下文是动态计算的</code></p>
+</blockquote>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/TechnologyBlog.github.io/2019/07/22/某汽车品牌客服项目移动端总结/" style="float: left;">
+        ← 某汽车品牌客服项目移动端总结
+    </a>
+    
+    
+    <a class="pull-right" href="/TechnologyBlog.github.io/2018/08/15/总结一些常用的方法/">
+        总结一些常用的方法 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By MOMO. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/Mooooom713" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/TechnologyBlog.github.io/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/TechnologyBlog.github.io/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/TechnologyBlog.github.io/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/TechnologyBlog.github.io/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+            <style>
+.local-search-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: rgba(255, 255, 255, .9);
+  color: #333;
+  z-index: 9999;
+  border-radius: 5px;
+  overflow: scroll;
+}
+#local-search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #151515;
+  background-color: initial;
+}
+.search-result-list {
+  list-style: none;
+  padding-left: 0;
+}
+.search-result-list > li {
+  margin-top: 15px;
+  border-bottom: 1px solid #ddd;
+  transition: all ease .3s;
+}
+.search-result-list > li:hover {
+  border-bottom: 1px solid gray;
+}
+.search-result-title {
+  font-size: 16px;
+}
+.search-result {
+  line-height: 20px;
+}
+.search-keyword {
+  font-weight: normal;
+  color: #c00;
+}
+
+@media (min-width: 890px) {
+  .popup-btn-close {
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    border: 1px solid #151515;
+    padding: 0px 10px;
+    border-top-left-radius: 8px;
+    cursor: pointer;
+    transition: all ease .3s;
+  }
+  .popup-btn-close:hover {
+    background: #151515;
+    opacity: .9;
+    color: #fff;
+  }
+}
+@media (max-width: 890px) {
+  .popup-btn-close {
+    font-size: 0;
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px #888;
+    cursor: pointer;
+  }
+  .popup-btn-close::after {
+    content: '←';
+    color: #151515;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+  }
+}
+</style>
+
+<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="local-search-header clearfix">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+          <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+        </div>
+      </div>
+      <div id="local-search-result"></div>
+    </div>
+  </div>
+</div>
+
+<script src="/TechnologyBlog.github.io/js/ziploader.js"></script>
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // get search zip version
+    $.get('/TechnologyBlog.github.io/searchVersion.txt?t=' + (+new Date()), function(res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson () {
+      initLoad(['/TechnologyBlog.github.io/search.zip'], {
+        loadOptions: {
+          success: function(obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function(e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions:{
+          'json':'application/json'
+        }
+      })
+    }
+
+
+    // search function;
+    var searchFunc = function(search_id, content_id) {
+      'use strict';
+
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function() {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function(data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title ? data.title.trim() : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content ? data.content.trim().replace(/<[^>]+>/g,"") : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function(keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0, position = [], index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+
+            // show search results
+
+            if (isMatch) {
+              // sort index by position of keyword
+
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+
+              // merge hits into slices
+
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+
+                  // move to next position of hit
+
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {
+                  hits: hits,
+                  start: start,
+                  end: end,
+                  searchTextCount: searchTextCountInSlice
+                };
+              }
+
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if(start < 0){
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if(end > content.length){
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+
+              // sort slices in content by search text's count and hits' count
+
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+
+              // select top N slices in content
+
+              var upperBound = parseInt('2');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+
+              // highlight title and content
+
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+
+              var resultItem = '';
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+              } else {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+              }
+
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "'>" +
+                  "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                  "...</p>" + "</a>";
+              });
+
+              resultItem += "</li>";
+              resultItems.push({
+                item: resultItem,
+                searchTextCount: searchTextCount,
+                hitCount: hitCount,
+                id: resultItems.length
+              });
+            }
+          })
+        };
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<ul class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</ul>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+
+      // remove loading animation
+      $('body').css('overflow', '');
+
+      proceedsearch();
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        $('.sb-close').click();
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+      
+</body>
+</html>

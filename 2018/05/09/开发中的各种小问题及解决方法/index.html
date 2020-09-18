@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>开发中的各种小问题及解决方法 | 二十岁的某一天</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="二十岁的某一天">
+    <meta name="author" content="MOMO">
+    <meta name="description" content="Love Life" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/TechnologyBlog.github.io/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="二十岁的某一天" type="application/atom+xml">
+    <link rel="stylesheet" href="/TechnologyBlog.github.io/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/TechnologyBlog.github.io/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/TechnologyBlog.github.io/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/TechnologyBlog.github.io/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/TechnologyBlog.github.io/js/html5shiv.min.js"></script>
+    <script src="/TechnologyBlog.github.io/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/TechnologyBlog.github.io/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/TechnologyBlog.github.io/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/TechnologyBlog.github.io/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+        <li>
+            <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a href="https://mooooom713.github.io/Animation/" target="_BLANK" class="animsition-link">MOMO的css动画</a>
+                </li>
+                
+                <li><a href="https://mooooom713.github.io/SauryQin/" target="_BLANK" class="animsition-link">汉诺塔小游戏</a>
+                </li>
+                
+                <li><a href="https://mooooom713.github.io/Doraemon/" target="_BLANK" class="animsition-link">一个div画哆啦A梦</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a href="/TechnologyBlog.github.io/categories/CSS/"
+                        class="animsition-link">CSS<small>(2)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/Git/"
+                        class="animsition-link">Git<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/HTML/"
+                        class="animsition-link">HTML<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/JavaScript/"
+                        class="animsition-link">JavaScript<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/今日份的学习/"
+                        class="animsition-link">今日份的学习<small>(6)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/学习笔记/"
+                        class="animsition-link">学习笔记<small>(8)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/实习/"
+                        class="animsition-link">实习<small>(9)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/实用/"
+                        class="animsition-link">实用<small>(15)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/盘点/"
+                        class="animsition-link">盘点<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/计算机网络/"
+                        class="animsition-link">计算机网络<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/面试/"
+                        class="animsition-link">面试<small>(2)</small></a></li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
+                
+            </ul>
+        </li>
+        
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+        <li><a href="javascript:;" class="popup-trigger" title="Search"><span class="search-icon"></span>Search</a></li>
+        
+        <li><a href="/TechnologyBlog.github.io/about.html" class="animsition-link" title="about">About</a></li>
+        <li><a href="/TechnologyBlog.github.io/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/TechnologyBlog.github.io" title="Logo" class="animsition-link">
+                         <img src="/TechnologyBlog.github.io/img/logo.png" alt="Logo" width="35px;" /> 
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/TechnologyBlog.github.io" class="animsition-link">二十岁的某一天</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        
+                        <li><a href="https://github.com/Mooooom713" title="Github" target="_blank"><i class="icon-github"></i></a>
+                        </li>
+                        
+                        
+                        <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i
+                                    class="icon-twitter"></i></a></li>
+                        
+                        
+                        <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                                    class="icon-facebook"></i></a></li>
+                        
+                        
+                        <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i
+                                    class="icon-google-plus"></i></a></li>
+                        
+                        
+                        <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i
+                                    class="icon-sina-weibo"></i></a></li>
+                        
+                        <li class="nolink"><span>Welcome!</span></li>
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <div class="learnmore sb-toggle-right">More</div>
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-05-09T08:31:50.000Z" itemprop="datePublished">
+          2018-05-09
+      </time>
+    
+    
+    | 
+    <a href='/TechnologyBlog.github.io/tags/实用/'>实用</a>
+    
+    
+</span>
+                <h1>开发中的各种小问题及解决方法</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<script src="\TechnologyBlog.github.io\assets\js\APlayer.min.js"> </script><p>1.在写css样式的时候经常遇到例如<li>标签之间有几个像素的解析（浏览器同，解析出来空的像素大小也不同）让人在写宽度的时候摸不着头脑，几经百度找到了一些方法。<br><img src="/TechnologyBlog.github.io/2018/05/09/开发中的各种小问题及解决方法/1.jpg"><br>在这些办法里，我之前最常用的是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;li&gt;</span><br><span class="line">	xxxx</span><br><span class="line">&lt;/li&gt;&lt;!--</span><br><span class="line">--&gt;&lt;li&gt;</span><br><span class="line">	xxx</span><br><span class="line">&lt;/li&gt;</span><br></pre></td></tr></table></figure><br>但是不得不说这个方法不优雅，放眼望去HTML里好多注释很丑陋而且写的时候也不方便，所以个人来说觉得最值得推荐的就是这个方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">font-size:0;</span><br></pre></td></tr></table></figure><br>这个怎么用呢，就是给</li><li>的父级加上这个样式，然后再在</li><li>的样式里重新写一个字体大小，完美~</li></p>
+<p>2.<li>的父级有一个<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display:inline-block;</span><br></pre></td></tr></table></figure><br>    </li><li>本身也设成了内联元素，然后问题来了。在Chrome下，我给</li><li>加一个<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border-bottom:1px solid #000;</span><br></pre></td></tr></table></figure><br>    居然没有效果，但是在360浏览器就可以，一度以为是Chrome炸了，后来把</li><li>改成<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">float:left;</span><br></pre></td></tr></table></figure>再在父级清除浮动之后，问题解决了。（至于原因，尚不明确…）</li></p>
+<p>3.关于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display:inline-block;</span><br></pre></td></tr></table></figure><br>的一些小问题及解决办法。<br>question:两个div在用内联的时候如果同没有内容，那么他们是底对齐，如果只给一个div加东西或者两个div里的东西不一样多都会造成排列混乱，如：<br><img src="/TechnologyBlog.github.io/2018/05/09/开发中的各种小问题及解决方法/2.jpg"><br>answer:<br>(1)如果给两个div都加上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vertical-align:middle;</span><br></pre></td></tr></table></figure><br>垂直居中，这样如果两个div高度一样，那么自然就对齐了。<br>(2)如果给两个都加上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">overflow:hidden;</span><br></pre></td></tr></table></figure><br>那么就可以直接底对齐。</p>
+<p>4.在一次执行任务的过程中，真的被onclike坑的要死要死的（流下了没有技术的泪水）。问题是这样的我在一个onclick事件里面对一个div做了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display:none;</span><br></pre></td></tr></table></figure>和另一个div做了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display:block;</span><br></pre></td></tr></table></figure>的处理，意图是局部刷新。我一点了那个按钮，讲道理，就应是之前那个div被none掉了，出来另一个div，但是应该出来的div一出来就闪退，然后又出现原来的那个div，我在css和js里周旋了long time,整个人都不是很好了=。=后来在Chrome调试器里调试的时候发现了个问题，每次执行了onclick事件过后，他都要去window.onload走一遍，那岂不是又刷新了整个页面？！哎哟我去，我马不停蹄的去百度一下onclick事件执行之后会刷新一次，结果发现好多小伙伴也着了道。当然聪明的摸摸大人肯定会想办法的呀，于是就是<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return:false;</span><br></pre></td></tr></table></figure>出场的时候了。只需要在onclick事件函数最后加上一个这个，就拒绝刷新了，那岂不是美滋滋~<br>*补充：<br>我终于知道为什么点击事件触发后js会被重新加载一遍，原来是因为添加点击事件的<li>标签外面有个<a>标签，并且有href属性，只不过href的值是空的！！！！</a></li></p>
+<p>5.在用hexo写mark文档的时候，想用表格条理清晰的表达些东西，咋整呢？百度了一个一个比较好用的办法。<br>效果图：<br><img src="/TechnologyBlog.github.io/2018/05/09/开发中的各种小问题及解决方法/3.jpg"><br>很叼呀！~<br>*但是要注意！第一排哪里的|线前有一个空格，如果不写，这个就不能被正常解析并且要与上一排内容空一行，不然也不能正常解析<br><blockquote><footer><strong>解决办法来自阿星同学的答疑</strong><cite><a href="http://www.714.hk/msi-182876-1-1.html" target="_blank" rel="noopener">神奇传送门</a></cite></footer></blockquote></p>
+<p>6.关于清除浮动<br>(1).最常用的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;</span><br><span class="line">	overflow:hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(2).在浮动元素的父元素内部的最后加一个空的div给一个类名，然后用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.clear&#123;</span><br><span class="line">	clear:both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(3).after伪类+zoom法<br>给要清除浮动的所有元素统一一个类名(减少css代码的冗杂)，如：clearfloat<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.clearfloat:after&#123;</span><br><span class="line">	clear:both;</span><br><span class="line">	content:&quot;&quot;;</span><br><span class="line">	display:block;</span><br><span class="line">	visibility:hidden;</span><br><span class="line">	height:0;</span><br><span class="line">&#125;</span><br><span class="line">.clearfloat&#123;</span><br><span class="line">	zoom:1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>最兼容和优雅的方案</p>
+<p>(4).<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;</span><br><span class="line">	overflow:auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>*父级是一个块级元素或有固定宽度才可以</p>
+<p>7.关于如何对一个数组进行除去重复的并且按降序排列<br>因为需要去重并且排序，所以先排序再去重会减少时间的消耗。<br>排序的话，用快速排序是最快的。给Array对象的原型添加块数排序的方法，这样每个引用的数组都可以使用此方法。<br>方法一：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Array.prototype.quickSock = function () &#123;</span><br><span class="line">	if (this.length &lt;= 1) &#123;</span><br><span class="line">		return this;</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		var leftArray = [],</span><br><span class="line">			rigthArray = [],</span><br><span class="line">			num = Math.floor((this.length)/2),</span><br><span class="line">			midValue = this.splice(num,1);</span><br><span class="line"></span><br><span class="line">			for (var i = 0; i &lt; this.length; i++) &#123;</span><br><span class="line">				if (this[i] &gt; midValue) &#123;</span><br><span class="line">					leftArray.push(this[i]);</span><br><span class="line">				&#125;</span><br><span class="line">				else&#123;</span><br><span class="line">					rigthArray.push(this[i]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			return leftArray.quickSock().concat(midValue,rigthArray.quickSock());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>方法二：（利用js数组对象的方法：sort排序）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function sortNum01(a,b)&#123;</span><br><span class="line">	return a-b;</span><br><span class="line">&#125;</span><br><span class="line">function sortNum02(a,b)&#123;</span><br><span class="line">	return b-a;</span><br><span class="line">&#125;</span><br><span class="line">var arr = [2,3,5,3,6,8,6,52,579,8,56,56,51,68,96,95,4];</span><br><span class="line">//从小到大排列</span><br><span class="line">alert(arr.sort(sortNum));   </span><br><span class="line">----&gt; 2,3,3,4,5,6,6,8,8,51,52,56,56,68,95,96,579</span><br><span class="line">//从大到小排序</span><br><span class="line">alert(arr.sort(sortNum));</span><br><span class="line">----&gt; 579,96,95,68,56,56,52,51,8,8,6,6,5,4,3,3,2</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>接下来就是给Array对象在原型里添加去重的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Array.prototype.checkHeavy = function()&#123;</span><br><span class="line">	var newArray = [this[0]];</span><br><span class="line">	for (var i = 0; i &lt; this.length; i++) &#123;</span><br><span class="line">		if (newArray.indexOf(this[i]) == -1) &#123;</span><br><span class="line">			newArray.push(this[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return newArray;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>用法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var newArray = [2,3,5,3,6,8,6,52,579,8,56,56,51,68,96,95,4];</span><br><span class="line"></span><br><span class="line">alert(newArray.quickSock().checkHeavy());</span><br><span class="line"></span><br><span class="line">//579,96,95,68,56,52,51,8,6,5,4,3,2</span><br></pre></td></tr></table></figure></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/TechnologyBlog.github.io/2018/05/09/闲来无事刷刷题之CSS/" style="float: left;">
+        ← 闲来无事刷刷题之CSS
+    </a>
+    
+    
+    <a class="pull-right" href="/TechnologyBlog.github.io/2018/05/09/闲来无事刷刷题之JavaScript/">
+        闲来无事刷刷题之JavaScript →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By MOMO. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/Mooooom713" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/TechnologyBlog.github.io/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/TechnologyBlog.github.io/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/TechnologyBlog.github.io/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/TechnologyBlog.github.io/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+            <style>
+.local-search-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: rgba(255, 255, 255, .9);
+  color: #333;
+  z-index: 9999;
+  border-radius: 5px;
+  overflow: scroll;
+}
+#local-search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #151515;
+  background-color: initial;
+}
+.search-result-list {
+  list-style: none;
+  padding-left: 0;
+}
+.search-result-list > li {
+  margin-top: 15px;
+  border-bottom: 1px solid #ddd;
+  transition: all ease .3s;
+}
+.search-result-list > li:hover {
+  border-bottom: 1px solid gray;
+}
+.search-result-title {
+  font-size: 16px;
+}
+.search-result {
+  line-height: 20px;
+}
+.search-keyword {
+  font-weight: normal;
+  color: #c00;
+}
+
+@media (min-width: 890px) {
+  .popup-btn-close {
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    border: 1px solid #151515;
+    padding: 0px 10px;
+    border-top-left-radius: 8px;
+    cursor: pointer;
+    transition: all ease .3s;
+  }
+  .popup-btn-close:hover {
+    background: #151515;
+    opacity: .9;
+    color: #fff;
+  }
+}
+@media (max-width: 890px) {
+  .popup-btn-close {
+    font-size: 0;
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px #888;
+    cursor: pointer;
+  }
+  .popup-btn-close::after {
+    content: '←';
+    color: #151515;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+  }
+}
+</style>
+
+<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="local-search-header clearfix">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+          <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+        </div>
+      </div>
+      <div id="local-search-result"></div>
+    </div>
+  </div>
+</div>
+
+<script src="/TechnologyBlog.github.io/js/ziploader.js"></script>
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // get search zip version
+    $.get('/TechnologyBlog.github.io/searchVersion.txt?t=' + (+new Date()), function(res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson () {
+      initLoad(['/TechnologyBlog.github.io/search.zip'], {
+        loadOptions: {
+          success: function(obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function(e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions:{
+          'json':'application/json'
+        }
+      })
+    }
+
+
+    // search function;
+    var searchFunc = function(search_id, content_id) {
+      'use strict';
+
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function() {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function(data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title ? data.title.trim() : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content ? data.content.trim().replace(/<[^>]+>/g,"") : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function(keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0, position = [], index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+
+            // show search results
+
+            if (isMatch) {
+              // sort index by position of keyword
+
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+
+              // merge hits into slices
+
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+
+                  // move to next position of hit
+
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {
+                  hits: hits,
+                  start: start,
+                  end: end,
+                  searchTextCount: searchTextCountInSlice
+                };
+              }
+
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if(start < 0){
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if(end > content.length){
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+
+              // sort slices in content by search text's count and hits' count
+
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+
+              // select top N slices in content
+
+              var upperBound = parseInt('2');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+
+              // highlight title and content
+
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+
+              var resultItem = '';
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+              } else {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+              }
+
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "'>" +
+                  "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                  "...</p>" + "</a>";
+              });
+
+              resultItem += "</li>";
+              resultItems.push({
+                item: resultItem,
+                searchTextCount: searchTextCount,
+                hitCount: hitCount,
+                id: resultItems.length
+              });
+            }
+          })
+        };
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<ul class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</ul>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+
+      // remove loading animation
+      $('body').css('overflow', '');
+
+      proceedsearch();
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        $('.sb-close').click();
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+      
+</body>
+</html>
