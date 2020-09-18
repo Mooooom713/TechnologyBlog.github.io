@@ -101,7 +101,7 @@
                         class="animsition-link">CSS<small>(2)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/Git/"
-                        class="animsition-link">Git<small>(1)</small></a></li>
+                        class="animsition-link">Git<small>(2)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/HTML/"
                         class="animsition-link">HTML<small>(1)</small></a></li>
@@ -113,13 +113,13 @@
                         class="animsition-link">今日份的学习<small>(6)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/学习笔记/"
-                        class="animsition-link">学习笔记<small>(8)</small></a></li>
+                        class="animsition-link">学习笔记<small>(9)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/实习/"
                         class="animsition-link">实习<small>(9)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/实用/"
-                        class="animsition-link">实用<small>(15)</small></a></li>
+                        class="animsition-link">实用<small>(17)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/盘点/"
                         class="animsition-link">盘点<small>(1)</small></a></li>
@@ -129,6 +129,9 @@
                 
                 <li><a href="/TechnologyBlog.github.io/categories/面试/"
                         class="animsition-link">面试<small>(2)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/项目实战/"
+                        class="animsition-link">项目实战<small>(2)</small></a></li>
                 
             </ul>
         </li>
@@ -254,11 +257,110 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/TechnologyBlog.github.io/2019/11/25/PuTTY-初体验/">PuTTY 初体验</a></h3>
+                    <h3><a href="/TechnologyBlog.github.io/2020/04/22/GIT-二三事/">GIT 二三事</a></h3>
                     <span>
                         <span class="post-meta">
-      <time datetime="2019-11-25T09:23:54.000Z" itemprop="datePublished">
-          2019-11-25
+      <time datetime="2020-04-22T03:15:22.000Z" itemprop="datePublished">
+          2020-04-22
+      </time>
+    
+    
+    | 
+    <a href='/TechnologyBlog.github.io/tags/Git/'>Git</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                         the remote end hung up unexpectedly
+这是我第一次遇到这个错误。是在初始化了一个 git 仓库，然后执行 git push --set-upstream origin master 的时候抛出的异常
+
+
+
+经过 Google 之后发现是因为推送的文件太大了而抛出的异常
+
+结果途径，增加当前仓库的 postBuffer 大小
+
+
+git config --local http.postBuffer 52
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/TechnologyBlog.github.io/2020/04/22/GIT-二三事/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/TechnologyBlog.github.io/2020/04/22/关于git-pull/">关于git pull</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2020-04-22T03:12:51.000Z" itemprop="datePublished">
+          2020-04-22
+      </time>
+    
+    
+    | 
+    <a href='/TechnologyBlog.github.io/tags/Git/'>Git</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                         遇见的突发问题在每次commit之后，会执行一次git pull --rebase拉取一下仓库里最新的代码执行完成之后会遇到两种情况
+
+直接拉取完成并自动merge
+
+拉取失败和本地修改的代码有冲突
+
+
+
+如何处理第二种情况
+在出现第二种情况的时候命令行会抛出错误
+
+你也会发现你被带到了另外一个临时分支上
+
+这时候不要慌！
+
+根据命令行里抛出的有冲突的文件去手动解决一下冲突
+
+解决完成之后执行git add .
+
+追加完成之后执行gi
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/TechnologyBlog.github.io/2020/04/22/关于git-pull/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/TechnologyBlog.github.io/2020/04/16/PuTTY-初体验/">PuTTY 初体验</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2020-04-16T09:23:54.000Z" itemprop="datePublished">
+          2020-04-16
       </time>
     
     
@@ -273,24 +375,253 @@
                     <p>
                       
                          起因
-首先在项目里，作为开发，我们访问服务器最后不要拿到IP，因为IP一旦被公开很容易被攻击，所以使用域名增加安全性
+首先在项目里，作为开发，我们访问服务器最后不要拿到 IP，因为 IP 一旦被公开很容易被攻击，所以使用域名增加安全性
 
-其次，我并不知道服务器的链接密码，只有一个私钥的文件(后缀名为pem)
+其次，我并不知道服务器的链接密码，只有一个私钥的文件(后缀名为 pem)
 
 综上，我是用了 PuTTY 去链接服务器，首先因为使用 PuTTY 的时候，我们可以在 ssh 分类下选择 Auth 然后倒入私钥文件并转换成 ppk 结尾的文件
 
 
 
 
-然后输入hostname并且点击 open 链接服务器
+然后输入 hostname 并且点击 open 链接服务器
 
-经过
-很快便链
+经
                       
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/TechnologyBlog.github.io/2019/11/25/PuTTY-初体验/">Read More...</a>
+                        <a href="/TechnologyBlog.github.io/2020/04/16/PuTTY-初体验/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/TechnologyBlog.github.io/2020/03/31/性能优化和一些奇奇怪怪小知识/">性能优化和一些奇奇怪怪小知识</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2020-03-31T02:44:27.000Z" itemprop="datePublished">
+          2020-03-31
+      </time>
+    
+    
+    | 
+    <a href='/TechnologyBlog.github.io/tags/实用/'>实用</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                         关于页面图片的加载效果Q： 在浏览器上加载图片的时候，我们时常遇到两种加载模式。第一种是图片由模糊到清楚，第二种是由上而下的加载，这两种加载方式具体有什么不同呢？还是说和图片本身的格式有关？
+解答
+加载方式其实取决于图片文件本身的压缩方式
+
+模糊 -&gt; 清晰 ：小波算放
+自上而下 ：离散余弦变换，类似于离散傅里叶变换，但只使用实数。
+
+
+浏览器根据图片不同的压缩方式选择不同的渲染算发。更改文件后缀名不会影响加载方式，因为压缩的算
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/TechnologyBlog.github.io/2020/03/31/性能优化和一些奇奇怪怪小知识/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/TechnologyBlog.github.io/2020/03/23/chrome-80-的奇技淫巧/">chrome 80 的奇技淫巧</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2020-03-23T02:17:31.000Z" itemprop="datePublished">
+          2020-03-23
+      </time>
+    
+    
+    | 
+    <a href='/TechnologyBlog.github.io/tags/实用/'>实用</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                         Module workersmodule workers 允许在创建一个新的 worker 对象的时候带上 { type: &#39;module&#39; } 的属性
+如：
+1const worker = new Worker('worker.js', &#123; type: 'module' &#125;);
+这样写的意义在于什么地方呢？
+
+带上了 module 属性之后，浏览器会按照 &lt;script type=&quot
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/TechnologyBlog.github.io/2020/03/23/chrome-80-的奇技淫巧/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/TechnologyBlog.github.io/2020/03/19/浏览器二三事/">浏览器二三事</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2020-03-19T09:02:28.000Z" itemprop="datePublished">
+          2020-03-19
+      </time>
+    
+    
+    | 
+    <a href='/TechnologyBlog.github.io/tags/学习笔记/'>学习笔记</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                         浏览器的高层结构
+主要组件图
+
+
+
+关于解析、语法和翻译
+解析： 是呈现引擎最重要的环节。解析的目的就是为了把文档转换成有意义的结构，并且可以让代码理解和使用。通常解析后的结果代表了文档结构的节点数，称为解析树或者语法树
+
+语法： 是解析的时候遵循文档的语法规则或者编写文档所用的语言、格式等的基础
+
+解析过程： 词法分析器和语法分析器
+
+词法分析器讲输入内容分成一个个有效标记（会分离无效字符：空格、换行等）
+解释器按照语言的语法规则分
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/TechnologyBlog.github.io/2020/03/19/浏览器二三事/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/TechnologyBlog.github.io/2020/03/10/联想项目Review/">联想项目Review</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2020-03-10T05:38:28.000Z" itemprop="datePublished">
+          2020-03-10
+      </time>
+    
+    
+    | 
+    <a href='/TechnologyBlog.github.io/tags/项目实战/'>项目实战</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                         关于制作邮件模板因为之前没有做过邮件模板，所以不太知道制作邮件模板的坑，就这样一步步的踩了过来。
+
+首先是邮件模板的样式在网页上浏览，非常的完美，但是真这个发邮件的时候，你就会发现你设置的很多边距呀，样式都不生效，甚至布局很多都不生效，写的那一套只有网页会正确解析，邮件是有邮件他自己的规矩的。
+
+其次，布局上，最好使用比较老套的 &lt;table&gt; 布局，这个布局是邮件支持的，按钮那些也都最好用 &lt;a&gt; a 标签。
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/TechnologyBlog.github.io/2020/03/10/联想项目Review/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/TechnologyBlog.github.io/2020/01/03/SUTD项目总结/">SUTD项目总结</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2020-01-03T03:03:40.000Z" itemprop="datePublished">
+          2020-01-03
+      </time>
+    
+    
+    | 
+    <a href='/TechnologyBlog.github.io/tags/项目实战/'>项目实战</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                         简介
+这是一个功能比较简单的网站：
+
+做测试题目
+计算展示测试结果
+生成证书
+分享结果
+查看每种类型的详细介绍
+外链到各个不同的设计学院和 open house
+
+
+
+
+痛点
+第一次自己 handle 一整个项目
+
+第一次根据自己根据需求去配置 webpack
+
+第一次用 vue 做一个功能非常完整闭环的项目
+
+移动端适配
+
+
+
+克服如何自己 handle 好一个项目呢？
+其实在开发中，单人开发除了在开发时长、任务量和周期上不沾上风以
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/TechnologyBlog.github.io/2020/01/03/SUTD项目总结/">Read More...</a>
                     </p>
                     
                 </div>
@@ -322,7 +653,7 @@
                       
                          filter
 在做模糊、投影效果的时候时常会用到 css 的一个属性 filter
-而在 filter 属性中有一个叫 grayscale 的属性，它有扫盲惊人的作用呢？ 下来来揭晓一下
+而在 filter 属性中有一个叫 grayscale 的属性，它有什么惊人的作用呢？ 下面来揭晓一下
 
 历史原因
 根据我咨询的一个交互设计师透露，在一般的开发中，做类似徽章或者有图片置灰或者正常显示来表示状态的时候，开发会找他们要这两种状态的图片，其实，这是完全用不着的~
@@ -368,316 +699,6 @@
                     
                     <p class="pull-right readMore">
                         <a href="/TechnologyBlog.github.io/2019/11/01/忍无可忍无需再忍之谁动了我的代码/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/TechnologyBlog.github.io/2019/10/28/html2canvas小坑/">html2canvas小坑</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2019-10-28T10:45:55.000Z" itemprop="datePublished">
-          2019-10-28
-      </time>
-    
-    
-    | 
-    <a href='/TechnologyBlog.github.io/tags/实用/'>实用</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                         将页面下载成pdf的情况第一步首先要引入两个第三方库htmltocanvas.js和jspdf.debug.js这两个库都是开源的可以放心使用
-第二步123456789101112131415&lt;script&gt;  var btn = document.getElementById('btn')  btn.onclick = function () &#123;    exportPdf()  &#125;function e
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/TechnologyBlog.github.io/2019/10/28/html2canvas小坑/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/TechnologyBlog.github.io/2019/10/09/webpack进阶之路/">webpack进阶之路</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2019-10-09T08:48:43.000Z" itemprop="datePublished">
-          2019-10-09
-      </time>
-    
-    
-    | 
-    <a href='/TechnologyBlog.github.io/tags/实用/'>实用</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                         稀里糊涂的module、chunk、bundle开局一张图
-
-图作者为水印上的人(侵删，谢谢)
-
-我们写的文件就是一个个的module，当这些module到达webpack进行打包的时候，webpack会根据各个文件之间的引用关系生成chunk，而webpack处理好chunk之后就会输出bundle，bundle是经过加载和编译之后的最终源文件，可以直接在浏览器中运行的
-
-一般来说一个chunk对应一个bundle，当然也有一个ch
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/TechnologyBlog.github.io/2019/10/09/webpack进阶之路/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/TechnologyBlog.github.io/2019/09/18/前端小技巧总结篇/">前端小技巧总结篇</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2019-09-18T06:54:41.000Z" itemprop="datePublished">
-          2019-09-18
-      </time>
-    
-    
-    | 
-    <a href='/TechnologyBlog.github.io/tags/实用/'>实用</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                         html header里的小秘密
-&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=7,9,10,11&quot;&gt;这条配置是让IE走7、9、10、11渲染
-
-&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=Edge,chrome=1&quot;&gt;这条配置是让IE
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/TechnologyBlog.github.io/2019/09/18/前端小技巧总结篇/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/TechnologyBlog.github.io/2019/09/18/面试技巧总结/">面试技巧总结</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2019-09-18T06:30:50.000Z" itemprop="datePublished">
-          2019-09-18
-      </time>
-    
-    
-    | 
-    <a href='/TechnologyBlog.github.io/tags/面试/'>面试</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                         职位分析主观分析
-凭主观意识感觉这个职位是否是你喜欢的
-
-职位描述分析（基本职责）
-逐一分析职位描述里的每一条要求，并且挖掘出关联的技术点
-
-回顾这些必须的技术点自己是否已经掌握
-
-
-任职要求分析（技术深度）
-任职要求是对能力深度和广度的挖掘
-
-分清关键词 - 了解、掌握、熟悉、精通
-
-如出现掌握某项技能优先的情况，在实际中，如果不是对这项技能非常精通，最好不要引导面试官询问这方面的东西，因为很有可能会给你再多加一面
-
-
-
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/TechnologyBlog.github.io/2019/09/18/面试技巧总结/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/TechnologyBlog.github.io/2019/09/18/h5移动端开发踩小坑/">h5移动端开发踩小坑</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2019-09-18T03:39:08.000Z" itemprop="datePublished">
-          2019-09-18
-      </time>
-    
-    
-    | 
-    <a href='/TechnologyBlog.github.io/tags/实用/'>实用</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                         兼容iOS的问题在form表单中的input框iOS自带样式
-起因：在项目中做登录的输入框是用原生 HTML 写的，但是是套在 form 表单里，在浏览器、安卓端都是完美的，但是在 iOS 出现了内阴影、自带圆角等样式
-
-处理办法：
-
-
-123456789101112input &#123;  flex: 9;  border: 1px solid rgba(0, 0, 0, 0.2);  border-right: 0;  bord
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/TechnologyBlog.github.io/2019/09/18/h5移动端开发踩小坑/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/TechnologyBlog.github.io/2019/09/16/JavaScript的设计模式学习/">JavaScript的设计模式学习</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2019-09-16T08:00:00.000Z" itemprop="datePublished">
-          2019-09-16
-      </time>
-    
-    
-    | 
-    <a href='/TechnologyBlog.github.io/tags/学习笔记/'>学习笔记</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                         关于面向对象
-概念
-
-类，即模板
-对象(实例)
-
-
-三要素： 继承、封装、多态
-
-子类集成父类
-封装，数据的权限和保密
-多态，同一接口不同实现
-
-
-
-
-软件设计原则
-小即美
-让每个程序只做好一件事情
-快速建立原型
-舍弃高效率取可移植性
-采用纯文本存储数据（可读性）
-充分利用软件的杠杆效应（软件复用）
-使用shell脚本来提高杠杆效应和可移植性
-避免强制性的用户界面
-让每个程序都称为过滤器
-允许用户定制环境
-尽量使操作系统内核小而美
-使
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/TechnologyBlog.github.io/2019/09/16/JavaScript的设计模式学习/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/TechnologyBlog.github.io/2019/09/11/node中间件使用踩坑路/">node中间件使用踩坑路</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2019-09-11T02:39:31.000Z" itemprop="datePublished">
-          2019-09-11
-      </time>
-    
-    
-    | 
-    <a href='/TechnologyBlog.github.io/tags/实用/'>实用</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                         起因在请求某个页面的时候，会在query中，携带一个ticket，在显示这个页面之前，前端回去判断这个票据是否有效，如果是非法或无效的，则直接回退到上一个页面
-经过
-在前端，架了一个用node写的中间层，在这个中间层，我是用了express提供的中间件app.use()监听所有路过的请求
-
-123456const express = require('express')const app = express()app.use(func
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/TechnologyBlog.github.io/2019/09/11/node中间件使用踩坑路/">Read More...</a>
                     </p>
                     
                 </div>

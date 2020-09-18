@@ -101,7 +101,7 @@
                         class="animsition-link">CSS<small>(2)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/Git/"
-                        class="animsition-link">Git<small>(1)</small></a></li>
+                        class="animsition-link">Git<small>(2)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/HTML/"
                         class="animsition-link">HTML<small>(1)</small></a></li>
@@ -113,13 +113,13 @@
                         class="animsition-link">今日份的学习<small>(6)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/学习笔记/"
-                        class="animsition-link">学习笔记<small>(8)</small></a></li>
+                        class="animsition-link">学习笔记<small>(9)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/实习/"
                         class="animsition-link">实习<small>(9)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/实用/"
-                        class="animsition-link">实用<small>(15)</small></a></li>
+                        class="animsition-link">实用<small>(17)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/盘点/"
                         class="animsition-link">盘点<small>(1)</small></a></li>
@@ -129,6 +129,9 @@
                 
                 <li><a href="/TechnologyBlog.github.io/categories/面试/"
                         class="animsition-link">面试<small>(2)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/项目实战/"
+                        class="animsition-link">项目实战<small>(2)</small></a></li>
                 
             </ul>
         </li>
@@ -238,7 +241,7 @@
         <div class="col-md-8 col-md-offset-2">
       		<script src="\TechnologyBlog.github.io\assets\js\APlayer.min.js"> </script><h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><ul>
 <li>在做模糊、投影效果的时候时常会用到 css 的一个属性 <code>filter</code></li>
-<li>而在 <code>filter</code> 属性中有一个叫 <code>grayscale</code> 的属性，它有扫盲惊人的作用呢？ 下来来揭晓一下</li>
+<li>而在 <code>filter</code> 属性中有一个叫 <code>grayscale</code> 的属性，它有什么惊人的作用呢？ 下面来揭晓一下</li>
 </ul>
 <h3 id="历史原因"><a href="#历史原因" class="headerlink" title="历史原因"></a>历史原因</h3><ul>
 <li><p>根据我咨询的一个交互设计师透露，在一般的开发中，做类似徽章或者有图片置灰或者正常显示来表示状态的时候，开发会找他们要这两种状态的图片，其实，这是完全用不着的~</p>
@@ -301,14 +304,31 @@
 <hr>
 </li>
 </ul>
-
+<h2 id="active伪类与css处理数据上报"><a href="#active伪类与css处理数据上报" class="headerlink" title="active伪类与css处理数据上报"></a>active伪类与css处理数据上报</h2><p>有时候我们在页面也需要埋点，根据业务需求去统计一些数据，在遇到禁止执行 js 的浏览器的时候就会很麻烦。所以用 css 会更畅通无阻一些。</p>
+<p>例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.button-1</span><span class="selector-pseudo">:active</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">url</span>(./pixel.gif?action=click&amp;id=button1); <span class="comment">/* 替换路径 */</span></span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.button-2</span><span class="selector-pseudo">:active</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">url</span>(./pixel.gif?action=click&amp;id=button2);</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="超级实用的empty伪类"><a href="#超级实用的empty伪类" class="headerlink" title="超级实用的empty伪类"></a>超级实用的empty伪类</h2><ul>
+<li>用法一: 匹配空标签</li>
+</ul>
+<img src="/TechnologyBlog.github.io/2019/11/22/css-扫盲专区/6.png">
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-id">#content</span><span class="selector-pseudo">:empty</span>&#123;</span></span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 50px;</span><br><span class="line"><span class="css">    <span class="selector-tag">border</span>: 3<span class="selector-tag">px</span> <span class="selector-tag">dashed</span> <span class="selector-id">#000</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>用法二: 隐藏空标签</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-id">#content</span><span class="selector-pseudo">:empty</span>&#123;</span></span><br><span class="line">    display: none;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>自动补全空字段</li>
+</ul>
+<img src="/TechnologyBlog.github.io/2019/11/22/css-扫盲专区/7.png">
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.answer</span><span class="selector-pseudo">:empty</span><span class="selector-pseudo">::before</span>&#123;</span></span><br><span class="line">    content: '暂无';</span><br><span class="line">    color: gray;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>名称:<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"answer"</span>&gt;</span>Joye<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>性别:<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"answer"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>年龄:<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"answer"</span>&gt;</span>16 ^_^<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>爱好:<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"answer"</span>&gt;</span>吃<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/TechnologyBlog.github.io/2019/11/25/PuTTY-初体验/" style="float: left;">
-        ← PuTTY 初体验
+    <a class="pull-left" href="/TechnologyBlog.github.io/2020/01/03/SUTD项目总结/" style="float: left;">
+        ← SUTD项目总结
     </a>
     
     

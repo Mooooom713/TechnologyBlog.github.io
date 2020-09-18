@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>PuTTY 初体验 | 二十岁的某一天</title>
+  <title>Archives: 2020/3 | 二十岁的某一天</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="post-template">
+<body class="home-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -101,7 +101,7 @@
                         class="animsition-link">CSS<small>(2)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/Git/"
-                        class="animsition-link">Git<small>(1)</small></a></li>
+                        class="animsition-link">Git<small>(2)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/HTML/"
                         class="animsition-link">HTML<small>(1)</small></a></li>
@@ -113,13 +113,13 @@
                         class="animsition-link">今日份的学习<small>(6)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/学习笔记/"
-                        class="animsition-link">学习笔记<small>(8)</small></a></li>
+                        class="animsition-link">学习笔记<small>(9)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/实习/"
                         class="animsition-link">实习<small>(9)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/实用/"
-                        class="animsition-link">实用<small>(15)</small></a></li>
+                        class="animsition-link">实用<small>(17)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/盘点/"
                         class="animsition-link">盘点<small>(1)</small></a></li>
@@ -129,6 +129,9 @@
                 
                 <li><a href="/TechnologyBlog.github.io/categories/面试/"
                         class="animsition-link">面试<small>(2)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/项目实战/"
+                        class="animsition-link">项目实战<small>(2)</small></a></li>
                 
             </ul>
         </li>
@@ -216,125 +219,96 @@
     </div>
 
     <!-- ============================ Header & Logo bar =========================== -->
-      
-<section id="intro">
-    <div class="container">
-        <div class="row col-md-offset-2">
-            <div class="col-md-8">
-    			<span class="post-meta">
-      <time datetime="2019-11-25T09:23:54.000Z" itemprop="datePublished">
-          2019-11-25
-      </time>
-    
-    
-    | 
-    <a href='/TechnologyBlog.github.io/tags/实用/'>实用</a>
-    
-    
-</span>
-                <h1>PuTTY 初体验</h1>
+      <!-- ============================ Hero Image =========================== -->
+
+<section id="hero" class="scrollme">
+    <div class="container-fluid element-img" style="background: url(/TechnologyBlog.github.io/img/bg.jpeg) no-repeat center center fixed;background-size: cover">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                    <div>
+                        
+                        <h2>A Little Fairy <span>Lives</span> Here, WELCOME.</h2>
+                        <p></p>
+                        
+                        <h2></h2>
+                        <p>你碌碌无为的昨天，是很多人活不到的明天。</p>
+                        
+
+                    </div>
+                </div>
             </div>
+            <!-- // .col-md-12 -->
         </div>
-        <div class="col-md-8 col-md-offset-2">
-      		<script src="\TechnologyBlog.github.io\assets\js\APlayer.min.js"> </script><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><ul>
-<li><p>首先在项目里，作为开发，我们访问服务器最后不要拿到IP，因为IP一旦被公开很容易被攻击，所以使用域名增加安全性</p>
-</li>
-<li><p>其次，我并不知道服务器的链接密码，只有一个私钥的文件(后缀名为pem)</p>
-</li>
-<li><p>综上，我是用了 <code>PuTTY</code> 去链接服务器，首先因为使用 <code>PuTTY</code> 的时候，我们可以在 <code>ssh</code> 分类下选择 <code>Auth</code> 然后倒入私钥文件并转换成 <code>ppk</code> 结尾的文件</p>
-</li>
-</ul>
-<img src="/TechnologyBlog.github.io/2019/11/25/PuTTY-初体验/1.png">
-<ul>
-<li>然后输入hostname并且点击 <code>open</code> 链接服务器</li>
-</ul>
-<h2 id="经过"><a href="#经过" class="headerlink" title="经过"></a>经过</h2><ul>
-<li><p>很快便链接上了服务器，做了一些npm之类的操作就快完成目标了</p>
-</li>
-<li><p>但是目标的最后一步是把npm执行完毕之后的 <code>reports</code> 文件拷贝到 windows 本地上</p>
-</li>
-<li><p>那么问题来了，我发现运维可能处于某种安全性质考虑，在服务器上并没有 <code>yum</code></p>
-</li>
-<li><p>所以我想使用 <code>sz</code> 命令下载就以失败告终</p>
-</li>
-<li><p>后来又尝试使用 <code>scp</code> 命令去下载，但是 <code>scp</code> 上传文件 <code>仿佛</code> 可以，因为他要求我输入服务器的密码(但是我并不止密码)，所以具体是否可以我不清楚，但是下载文件的时候，带上我电脑 <code>ip v4</code> 的地址但是连接不通，很恼火</p>
-</li>
-</ul>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><ul>
-<li><p>后来下载了 <code>WinSCP</code> </p>
-</li>
-<li><p><code>WinSCP</code> 支持类似 <code>PuTTY</code> 的方法导入私钥链接服务器，图形化的界面相当友好，使用感觉和在 windows 一毛一样，非常好上手</p>
-</li>
-<li><p>完美解决 ~</p>
-</li>
-</ul>
-
-            <div class="clearfix"></div>
-            <hr class="nogutter">
-        </div>
-        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
-    
-    
-    <a class="pull-right" href="/TechnologyBlog.github.io/2019/11/22/css-扫盲专区/">
-        css 扫盲专区 →
-    </a>
-    
-</nav>
-
-        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
-  /**
-   * 搜狐畅言
-   */
-
-  /*
-  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
-
-  window.onload = function () {
-    (function () {
-      var appid = 'cytXXXX';
-      var conf = 'prod_xxxxxxxxxxxxxxxxx';
-      var width = window.innerWidth || document.documentElement.clientWidth;
-      var loadJs = function (d, a, id) {
-        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
-        var b = document.createElement("script");
-        b.setAttribute("type", "text/javascript");
-        b.setAttribute("charset", "UTF-8");
-        b.setAttribute("src", d);
-        if (id) {
-          b.setAttribute("id", id);
-        }
-        if (typeof a === "function") {
-          if (window.attachEvent) {
-            b.onreadystatechange = function () {
-              var e = b.readyState;
-              if (e === "loaded" || e === "complete") {
-                b.onreadystatechange = null;
-                a()
-              }
-            }
-          } else {
-            b.onload = a
-          }
-        }
-        c.appendChild(b)
-      };
-
-      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
-        window.changyan.api.config({
-          appid: appid,
-          conf: conf
-        })
-      });
-    })();
-  }
-  */
-
-</script>
-</div>
+        <div class="herofade beige-dk"></div>
     </div>
 </section>
 
+<!-- Height spacing helper -->
+<div class="heightblock"></div>
+<!-- // End height spacing helper -->
 
+<!-- ============================ END Hero Image =========================== -->
+
+
+
+
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row boxes">
+                    
+                    
+                        
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                              <h4 class="title"><a href="/TechnologyBlog.github.io/2020/03/31/性能优化和一些奇奇怪怪小知识/">性能优化和一些奇奇怪怪小知识</a></h4>
+                            
+                            <p><time datetime="2020-03-31T02:44:27.000Z"><a href="/TechnologyBlog.github.io/2020/03/31/性能优化和一些奇奇怪怪小知识/">2020-03-31</a></time></p>
+                        </div>
+                    
+                        
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                              <h4 class="title"><a href="/TechnologyBlog.github.io/2020/03/23/chrome-80-的奇技淫巧/">chrome 80 的奇技淫巧</a></h4>
+                            
+                            <p><time datetime="2020-03-23T02:17:31.000Z"><a href="/TechnologyBlog.github.io/2020/03/23/chrome-80-的奇技淫巧/">2020-03-23</a></time></p>
+                        </div>
+                    
+                        
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                              <h4 class="title"><a href="/TechnologyBlog.github.io/2020/03/19/浏览器二三事/">浏览器二三事</a></h4>
+                            
+                            <p><time datetime="2020-03-19T09:02:28.000Z"><a href="/TechnologyBlog.github.io/2020/03/19/浏览器二三事/">2020-03-19</a></time></p>
+                        </div>
+                    
+                        
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                              <h4 class="title"><a href="/TechnologyBlog.github.io/2020/03/10/联想项目Review/">联想项目Review</a></h4>
+                            
+                            <p><time datetime="2020-03-10T05:38:28.000Z"><a href="/TechnologyBlog.github.io/2020/03/10/联想项目Review/">2020-03-10</a></time></p>
+                        </div>
+                    
+                </div>
+            </div>    
+        </div>
+    </div>
+</section> 
+
+<section id="statement">
+    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
+        <div class="row">
+            <p>TIME WAITS FOR NO ONE.</p>
+        </div>
+    </div>
+</section>
       
 <!-- ============================ Footer =========================== -->
 

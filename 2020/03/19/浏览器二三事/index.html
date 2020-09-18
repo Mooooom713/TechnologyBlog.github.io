@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>关于git pull | 二十岁的某一天</title>
+  <title>浏览器二三事 | 二十岁的某一天</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -101,7 +101,7 @@
                         class="animsition-link">CSS<small>(2)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/Git/"
-                        class="animsition-link">Git<small>(1)</small></a></li>
+                        class="animsition-link">Git<small>(2)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/HTML/"
                         class="animsition-link">HTML<small>(1)</small></a></li>
@@ -113,13 +113,13 @@
                         class="animsition-link">今日份的学习<small>(6)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/学习笔记/"
-                        class="animsition-link">学习笔记<small>(8)</small></a></li>
+                        class="animsition-link">学习笔记<small>(9)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/实习/"
                         class="animsition-link">实习<small>(9)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/实用/"
-                        class="animsition-link">实用<small>(15)</small></a></li>
+                        class="animsition-link">实用<small>(17)</small></a></li>
                 
                 <li><a href="/TechnologyBlog.github.io/categories/盘点/"
                         class="animsition-link">盘点<small>(1)</small></a></li>
@@ -129,6 +129,9 @@
                 
                 <li><a href="/TechnologyBlog.github.io/categories/面试/"
                         class="animsition-link">面试<small>(2)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/项目实战/"
+                        class="animsition-link">项目实战<small>(2)</small></a></li>
                 
             </ul>
         </li>
@@ -222,59 +225,84 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2019-08-07T09:43:51.000Z" itemprop="datePublished">
-          2019-08-07
+      <time datetime="2020-03-19T09:02:28.000Z" itemprop="datePublished">
+          2020-03-19
       </time>
     
     
     | 
-    <a href='/TechnologyBlog.github.io/tags/Git/'>Git</a>
+    <a href='/TechnologyBlog.github.io/tags/学习笔记/'>学习笔记</a>
     
     
 </span>
-                <h1>关于git pull</h1>
+                <h1>浏览器二三事</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<script src="\TechnologyBlog.github.io\assets\js\APlayer.min.js"> </script><h2 id="遇见的突发问题"><a href="#遇见的突发问题" class="headerlink" title="遇见的突发问题"></a>遇见的突发问题</h2><p>在每次commit之后，会执行一次<code>git pull --rebase</code>拉取一下仓库里最新的代码<br>执行完成之后会遇到两种情况</p>
+      		<script src="\TechnologyBlog.github.io\assets\js\APlayer.min.js"> </script><h2 id="浏览器的高层结构"><a href="#浏览器的高层结构" class="headerlink" title="浏览器的高层结构"></a>浏览器的高层结构</h2><ul>
+<li>主要组件图</li>
+</ul>
+<img src="/TechnologyBlog.github.io/2020/03/19/浏览器二三事/1.png">
+<hr>
+<h2 id="关于解析、语法和翻译"><a href="#关于解析、语法和翻译" class="headerlink" title="关于解析、语法和翻译"></a>关于解析、语法和翻译</h2><ul>
+<li><p>解析： 是呈现引擎最重要的环节。解析的目的就是为了把文档转换成有意义的结构，并且可以让代码理解和使用。通常解析后的结果代表了文档结构的节点数，称为解析树或者语法树</p>
+</li>
+<li><p>语法： 是解析的时候遵循文档的语法规则或者编写文档所用的语言、格式等的基础</p>
+</li>
+<li><p>解析过程： 词法分析器和语法分析器</p>
 <ul>
-<li><p>直接拉取完成并自动merge</p>
+<li>词法分析器讲输入内容分成一个个有效标记（会分离无效字符：空格、换行等）</li>
+<li>解释器按照语言的语法规则分析文档的结构从而构建解析树</li>
+<li><code>解析是一个迭代的过程</code></li>
+</ul>
 </li>
-<li><p>拉取失败和本地修改的代码有冲突</p>
+<li><p>翻译： 将输入的文档转换成另一种格式：如将源码解析成解析树，然后解析树翻译成机器代码文档</p>
 </li>
 </ul>
 <hr>
-<h2 id="如何处理第二种情况"><a href="#如何处理第二种情况" class="headerlink" title="如何处理第二种情况"></a>如何处理第二种情况</h2><ul>
-<li><p>在出现第二种情况的时候命令行会抛出错误</p>
+<h2 id="解释器"><a href="#解释器" class="headerlink" title="解释器"></a>解释器</h2><p>最基本的有两种类型的解释器</p>
+<ul>
+<li>自上而下解释器： 从语法高层结构出发，尝试从中找到匹配的结构</li>
+<li>自下而上解释器： 从底层规则出发，逐步转换为语法规则。自下而上的解释器又叫归位解释器。</li>
+</ul>
+<p>关于自动生成解释器</p>
+<ul>
+<li><p>有一些工具可以帮我们生成解释器，这些工具叫解释器生成器，只需要我们提供词汇和语法规则，他就会生成对应的解释器生成器。</p>
 </li>
-<li><p>你也会发现你被带到了另外一个临时分支上</p>
-</li>
-<li><p>这时候不要慌！</p>
-</li>
-<li><p>根据命令行里抛出的有冲突的文件去手动解决一下冲突</p>
-</li>
-<li><p>解决完成之后执行<code>git add .</code></p>
-</li>
-<li><p>追加完成之后执行<code>git pull --continue</code></p>
-</li>
-<li><p>然后再执行<code>git push</code>就大功告成了</p>
+<li><p>webkit使用了两种非常有名的解释器生成器 <code>Flex</code> 和  <code>Bison(或者叫：Lex、Yacc别名)</code></p>
+<ul>
+<li>Flex的输入时包含标记的正则表达式定义的文件</li>
+<li>Bison的输入采用的是 <code>BNF</code> 格式的语法规则</li>
+</ul>
 </li>
 </ul>
 <hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在我以往直接暴力使用<code>git pull</code>的经历来看，pull的时候会去<code>git merge</code>但是当你有一个commit的时候，<br>拉取下来了别人的代码，merge完成之后，你会发现，你需要push的有两个了。也就是把别人的改动也加在了你的提交上，<br>真是太可怕了。</p>
+<h2 id="HTML解释器"><a href="#HTML解释器" class="headerlink" title="HTML解释器"></a>HTML解释器</h2><ul>
+<li><p>实际上 HTML 并不符合与上下文无关（即不符合 BNF 的格式语法）所以，基本上常规的解释器都无法使用于 HTML （但是他们可以解析 css 和 js）</p>
+</li>
+<li><p>有一种可以定义 HTML 的正规格式叫 DTD (Document Type Definition, 文档类型)， 但它不是与上下文无关语法</p>
+</li>
+<li><p>浏览器无法用自上而下或自下而上的解析器进行解析 HTML 的原因：</p>
+<ul>
+<li>语言的宽容本质</li>
+<li>浏览器历来对一些常见的无效 HTML 包容的态度</li>
+<li>解析的过程要不断的反复，所以原内容在解析的过程中通常是不会改变的，但在 HTML 中，脚本如果包含 <code>document.write</code> 就会添加额外的标记，这样解析的输入内容实际上就发生了变化</li>
+</ul>
+</li>
+</ul>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/TechnologyBlog.github.io/2019/08/12/开博首盘点-非常顺手的编程字体/" style="float: left;">
-        ← 开博首盘点--非常顺手的编程字体
+    <a class="pull-left" href="/TechnologyBlog.github.io/2020/03/23/chrome-80-的奇技淫巧/" style="float: left;">
+        ← chrome 80 的奇技淫巧
     </a>
     
     
-    <a class="pull-right" href="/TechnologyBlog.github.io/2019/07/26/react-hooks之初体验/">
-        react hooks之初体验 →
+    <a class="pull-right" href="/TechnologyBlog.github.io/2020/03/10/联想项目Review/">
+        联想项目Review →
     </a>
     
 </nav>

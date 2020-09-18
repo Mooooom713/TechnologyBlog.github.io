@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>SUTD项目总结 | 二十岁的某一天</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="二十岁的某一天">
+    <meta name="author" content="MOMO">
+    <meta name="description" content="Love Life" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/TechnologyBlog.github.io/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="二十岁的某一天" type="application/atom+xml">
+    <link rel="stylesheet" href="/TechnologyBlog.github.io/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/TechnologyBlog.github.io/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/TechnologyBlog.github.io/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/TechnologyBlog.github.io/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/TechnologyBlog.github.io/js/html5shiv.min.js"></script>
+    <script src="/TechnologyBlog.github.io/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/TechnologyBlog.github.io/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/TechnologyBlog.github.io/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/TechnologyBlog.github.io/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+        <li>
+            <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a href="https://mooooom713.github.io/Animation/" target="_BLANK" class="animsition-link">MOMO的css动画</a>
+                </li>
+                
+                <li><a href="https://mooooom713.github.io/SauryQin/" target="_BLANK" class="animsition-link">汉诺塔小游戏</a>
+                </li>
+                
+                <li><a href="https://mooooom713.github.io/Doraemon/" target="_BLANK" class="animsition-link">一个div画哆啦A梦</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a href="/TechnologyBlog.github.io/categories/CSS/"
+                        class="animsition-link">CSS<small>(2)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/Git/"
+                        class="animsition-link">Git<small>(2)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/HTML/"
+                        class="animsition-link">HTML<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/JavaScript/"
+                        class="animsition-link">JavaScript<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/今日份的学习/"
+                        class="animsition-link">今日份的学习<small>(6)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/学习笔记/"
+                        class="animsition-link">学习笔记<small>(9)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/实习/"
+                        class="animsition-link">实习<small>(9)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/实用/"
+                        class="animsition-link">实用<small>(17)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/盘点/"
+                        class="animsition-link">盘点<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/计算机网络/"
+                        class="animsition-link">计算机网络<small>(1)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/面试/"
+                        class="animsition-link">面试<small>(2)</small></a></li>
+                
+                <li><a href="/TechnologyBlog.github.io/categories/项目实战/"
+                        class="animsition-link">项目实战<small>(2)</small></a></li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
+                
+            </ul>
+        </li>
+        
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+        <li><a href="javascript:;" class="popup-trigger" title="Search"><span class="search-icon"></span>Search</a></li>
+        
+        <li><a href="/TechnologyBlog.github.io/about.html" class="animsition-link" title="about">About</a></li>
+        <li><a href="/TechnologyBlog.github.io/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/TechnologyBlog.github.io" title="Logo" class="animsition-link">
+                         <img src="/TechnologyBlog.github.io/img/logo.png" alt="Logo" width="35px;" /> 
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/TechnologyBlog.github.io" class="animsition-link">二十岁的某一天</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        
+                        <li><a href="https://github.com/Mooooom713" title="Github" target="_blank"><i class="icon-github"></i></a>
+                        </li>
+                        
+                        
+                        <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i
+                                    class="icon-twitter"></i></a></li>
+                        
+                        
+                        <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                                    class="icon-facebook"></i></a></li>
+                        
+                        
+                        <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i
+                                    class="icon-google-plus"></i></a></li>
+                        
+                        
+                        <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i
+                                    class="icon-sina-weibo"></i></a></li>
+                        
+                        <li class="nolink"><span>Welcome!</span></li>
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <div class="learnmore sb-toggle-right">More</div>
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2020-01-03T03:03:40.000Z" itemprop="datePublished">
+          2020-01-03
+      </time>
+    
+    
+    | 
+    <a href='/TechnologyBlog.github.io/tags/项目实战/'>项目实战</a>
+    
+    
+</span>
+                <h1>SUTD项目总结</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<script src="\TechnologyBlog.github.io\assets\js\APlayer.min.js"> </script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li><p>这是一个功能比较简单的网站：</p>
+<ul>
+<li>做测试题目</li>
+<li>计算展示测试结果</li>
+<li>生成证书</li>
+<li>分享结果</li>
+<li>查看每种类型的详细介绍</li>
+<li>外链到各个不同的设计学院和 open house</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="痛点"><a href="#痛点" class="headerlink" title="痛点"></a>痛点</h2><ul>
+<li><p>第一次自己 handle 一整个项目</p>
+</li>
+<li><p>第一次根据自己根据需求去配置 webpack</p>
+</li>
+<li><p>第一次用 vue 做一个功能非常完整闭环的项目</p>
+</li>
+<li><p>移动端适配</p>
+</li>
+</ul>
+<hr>
+<h2 id="克服"><a href="#克服" class="headerlink" title="克服"></a>克服</h2><h3 id="如何自己-handle-好一个项目呢？"><a href="#如何自己-handle-好一个项目呢？" class="headerlink" title="如何自己 handle 好一个项目呢？"></a>如何自己 handle 好一个项目呢？</h3><ul>
+<li><p>其实在开发中，单人开发除了在开发时长、任务量和周期上不沾上风以外，根本不会存在代码冲突、配合不好之类的问题</p>
+</li>
+<li><p>并且在多人开发中，组件如何抽离、怎么抽都需要提前商量好，当然单人开发不需要商量，但是还是要自己提前计划好</p>
+</li>
+<li><p>还有一个很重点的事情就是在开始写代码之前，一定要认真过每一个设计稿。然后把设计稿串联起来消化需求之后，对项目该如何架构有明确想法了再开始写代码。</p>
+</li>
+<li><p>最后还有一个很重要的点。在我的观察范围内，感觉做开发的其实普遍都存在一些主观的意愿在项目了，经常做到某些部分设计给的不清晰， pm 的需求也不是特别清晰的时候我们会按照我们想的来做，这没问题，问题在于后面他们提出了要求之后，我们经常和他们 argue 目的只是为了不改代码，但通过这个项目，我意识到一个问题。 有时候 pm 和设计的坚持其实是为了用户体验和交付的东西更好。 而我们因为偷懒不想改掉的东西可能让我们这一次的项目就并没有想想中的更完美。也可能我就是想做到别人用我做的东西的时候，也有我看见设计师设计的稿子的时候那样的惊叹。所以很多东西都不能似是而非，应该严守底线。</p>
+</li>
+</ul>
+<h3 id="关于这个项目-webpack-的配置"><a href="#关于这个项目-webpack-的配置" class="headerlink" title="关于这个项目 webpack 的配置"></a>关于这个项目 webpack 的配置</h3><p>因为我们的项目打包好交给后端的时候，需要按照后端想要的文件配置，所以使用生产环境的 <code>webapck</code> 配置的时候，我们就理清楚，输出出来的文件包一定是这个格式：</p>
+<ul>
+<li>images - 图片文件</li>
+<li>fonts - 字体文件</li>
+<li>entry - main.js 文件</li>
+<li>pags - main.html 文件</li>
+</ul>
+<p>webpack.prod 输出配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">  path: path.resolve(__dirname, <span class="string">"prod"</span>),</span><br><span class="line">  filename: <span class="string">"entries/main.js"</span>,</span><br><span class="line">  chunkFilename: <span class="string">"entries/[name].[hash].js"</span></span><br><span class="line">&#125;,</span><br><span class="line">plugins: [</span><br><span class="line">  <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">    template: <span class="string">"./src/index.html"</span>,</span><br><span class="line">    filename: <span class="string">"./pages/main.html"</span></span><br><span class="line">  &#125;)</span><br><span class="line">],</span><br><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">  rules: [</span><br><span class="line">    &#123;</span><br><span class="line">      test: <span class="regexp">/\.(png|jpe?g|gif|svg)(\?.*)?$/</span>,</span><br><span class="line">      loader: <span class="string">'file-loader'</span>,</span><br><span class="line">      options: &#123;</span><br><span class="line">        limit: <span class="number">10000</span>,</span><br><span class="line">        name: <span class="string">'[name].[ext]'</span>,</span><br><span class="line">        outputPath: <span class="string">'images'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      test: <span class="regexp">/\.(woff2?|eot|ttf|otf)(\?.*)?$/</span>,</span><br><span class="line">      loader: <span class="string">'file-loader'</span>,</span><br><span class="line">      options: &#123;</span><br><span class="line">        limit: <span class="number">10000</span>,</span><br><span class="line">        name: <span class="string">'[name].[ext]'</span>,</span><br><span class="line">        outputPath: <span class="string">'fonts'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h4><h5 id="在我配置好各个环境下的-webpack-之后，我的执行-npm-run-start-local-成功的起了起来，但是页面没东西！！！第一反应是-vue-loader-没有生效，-但是查看-vue-loader-的配置是正确的没错"><a href="#在我配置好各个环境下的-webpack-之后，我的执行-npm-run-start-local-成功的起了起来，但是页面没东西！！！第一反应是-vue-loader-没有生效，-但是查看-vue-loader-的配置是正确的没错" class="headerlink" title="在我配置好各个环境下的 webpack 之后，我的执行 npm run start-local 成功的起了起来，但是页面没东西！！！第一反应是 vue-loader 没有生效， 但是查看 vue-loader 的配置是正确的没错"></a>在我配置好各个环境下的 webpack 之后，我的执行 <code>npm run start-local</code> 成功的起了起来，但是页面没东西！！！第一反应是 vue-loader 没有生效， 但是查看 vue-loader 的配置是正确的没错</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  test: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">  include: [path.resolve(__dirname, <span class="string">'src/'</span>)],</span><br><span class="line">  use: <span class="string">'vue-loader'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>后来去各种 Google、 百度才发现还需要在 <code>resolve</code> 里加上 <code>extensions</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">  alias: &#123;</span><br><span class="line">    <span class="string">'@'</span>: path.resolve(__dirname, <span class="string">'src'</span>),</span><br><span class="line">    <span class="string">'*'</span>: path.resolve(__dirname, <span class="string">'src/assets'</span>),</span><br><span class="line">  &#125;,</span><br><span class="line">  extensions: [<span class="string">'*'</span>, <span class="string">'.js'</span>, <span class="string">'.vue'</span>, <span class="string">'.json'</span>],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>是因为各种解析工具默认只能识别 `js` 文件，所以你必须在 `extensions` 加上 vue 的后缀名，以便他去解析你的 vue 文件。
+</code></pre><hr>
+<h5 id="在-history-模式下，-打包出来的文件，如果你直接本地打开，是空白的，在根元素内没有内容。为此我纠结了很久一度认为-vue-router-是不是有什么问题。最后怎么解决的呢？"><a href="#在-history-模式下，-打包出来的文件，如果你直接本地打开，是空白的，在根元素内没有内容。为此我纠结了很久一度认为-vue-router-是不是有什么问题。最后怎么解决的呢？" class="headerlink" title="在 history 模式下， 打包出来的文件，如果你直接本地打开，是空白的，在根元素内没有内容。为此我纠结了很久一度认为 vue-router 是不是有什么问题。最后怎么解决的呢？"></a>在 history 模式下， 打包出来的文件，如果你直接本地打开，是空白的，在根元素内没有内容。为此我纠结了很久一度认为 vue-router 是不是有什么问题。最后怎么解决的呢？</h5><pre><code>后来把打包的文件放到服务器上之后，路径指定到了该文件夹下的 `index.html` 这时就能找到对应的资源，页面可以正常显示了。
+</code></pre><hr>
+<h5 id="在-history-模式下，-我传入了-route-表，定义的一些路由相关的东西，但是在访问的时候并不生效。访问的页面是404"><a href="#在-history-模式下，-我传入了-route-表，定义的一些路由相关的东西，但是在访问的时候并不生效。访问的页面是404" class="headerlink" title="在 history 模式下， 我传入了 route 表，定义的一些路由相关的东西，但是在访问的时候并不生效。访问的页面是404"></a>在 history 模式下， 我传入了 route 表，定义的一些路由相关的东西，但是在访问的时候并不生效。访问的页面是404</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  mode: <span class="string">"history"</span>,</span><br><span class="line">  base: __dirname,</span><br><span class="line">  routes</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">"#root"</span>,</span><br><span class="line">  render: <span class="function"><span class="params">h</span> =&gt;</span> h(App),</span><br><span class="line">  router</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code>经过各种google、百度，才知道，在 history 模式下用 webpack dev server 需要配置一个Fallback
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  contentBase: path.resolve(__dirname, <span class="string">"local"</span>),</span><br><span class="line">  port: <span class="number">8001</span>,</span><br><span class="line">  hot: <span class="literal">true</span>,</span><br><span class="line">  historyApiFallback: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如webpack官网给出的解释：</p>
+<img src="/TechnologyBlog.github.io/2020/01/03/SUTD项目总结/1.png">
+<p><a href="https://webpack.js.org/configuration/dev-server/#devserverhistoryapifallback" target="_blank" rel="noopener">神奇传送门 - webpack</a></p>
+<hr>
+<h5 id="IOS-10-0-以上的版本不支持-meta-标签控制屏幕缩放！！！"><a href="#IOS-10-0-以上的版本不支持-meta-标签控制屏幕缩放！！！" class="headerlink" title="IOS 10.0 以上的版本不支持 meta 标签控制屏幕缩放！！！"></a>IOS 10.0 以上的版本不支持 meta 标签控制屏幕缩放！！！</h5><hr>
+<h5 id="初次兼容移动端开发，在-IOS-里踩了一个巨大的坑。有三个页面，设计师要求必须一个屏幕显示完，不允许滚动…这种需求放安卓端很好搞定的，毕竟安卓机的宽高都挺大的，主要是可以控制成全屏显示。内容都可以放下且放在一个屏幕内。但是！-苹果就不是了，他是开发最痛苦的存在吧，也许…"><a href="#初次兼容移动端开发，在-IOS-里踩了一个巨大的坑。有三个页面，设计师要求必须一个屏幕显示完，不允许滚动…这种需求放安卓端很好搞定的，毕竟安卓机的宽高都挺大的，主要是可以控制成全屏显示。内容都可以放下且放在一个屏幕内。但是！-苹果就不是了，他是开发最痛苦的存在吧，也许…" class="headerlink" title="初次兼容移动端开发，在 IOS 里踩了一个巨大的坑。有三个页面，设计师要求必须一个屏幕显示完，不允许滚动…这种需求放安卓端很好搞定的，毕竟安卓机的宽高都挺大的，主要是可以控制成全屏显示。内容都可以放下且放在一个屏幕内。但是！ 苹果就不是了，他是开发最痛苦的存在吧，也许…"></a>初次兼容移动端开发，在 IOS 里踩了一个巨大的坑。有三个页面，设计师要求必须一个屏幕显示完，不允许滚动…这种需求放安卓端很好搞定的，毕竟安卓机的宽高都挺大的，主要是可以控制成全屏显示。内容都可以放下且放在一个屏幕内。但是！ 苹果就不是了，他是开发最痛苦的存在吧，也许…</h5><p>起初在 chrome 的模拟器上，各种调试都是完美的，但是一到真机上的浏览器就乱的妈都不认识…这是时候什么 <code>vh</code> 什么 <code>clientHeight</code> 都是虚的。这个时候只能使用 <code>innerHeight</code> 去获取到当前视图的真实高度。经过大神指点：</p>
+<ul>
+<li>首先在html初始化的时候执行计算逻辑</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  (<span class="function"><span class="keyword">function</span>(<span class="params">listener</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.addEventListener(<span class="string">'resize'</span>,listener, <span class="literal">false</span>)</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.addEventListener(<span class="string">'orientationchange'</span>,listener, <span class="literal">false</span>)</span></span><br><span class="line"><span class="javascript">  &#125;)(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span>(<span class="built_in">document</span>.documentElement.style.setProperty)&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.documentElement.style.setProperty(</span></span><br><span class="line"><span class="javascript">        <span class="string">'--vh'</span>,</span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.innerHeight / <span class="number">100</span> + <span class="string">'px'</span></span></span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在 style 文件里使用该自定义属性（第一行height是兜底的，为的就是如果不能识别自定义属性的情况，提高兼容性）</li>
+</ul>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">height</span>: calc(<span class="string">~'100vh - 60px'</span>);</span><br><span class="line"><span class="attribute">height</span>: calc(var(--vh, <span class="number">1vh</span>) * <span class="number">100</span> - <span class="number">60px</span>);</span><br></pre></td></tr></table></figure>
+<p>一开始以为就这样就可以快快乐乐的交付，实际呢？ 在 UAT 的时候因为首页面是固定的一个页面展示所有内容，就那点高度，那点宽度，根本不可能，样式丑的可怜。本来以为这样修改之后就万事大吉了，看来还是那句老话，你不能限制用户在前段的想象力。出现问题的地方就是用户的屏幕可能并没有锁定竖屏显示，所以使用网站的时候，他可能把屏幕横过来了。这时，你的 <code>innerHeight</code> 对应的就变了，一个屏幕现显示所有内容，在竖屏的case下，显然不可能。还出现了一个关键的问题 — <code>innerHeight</code> 的值改变是会滞后的。这很严重，在 safari 上好像没有什么影响，但是到了 IOS 的 chrome 上，就发现了再转为竖屏的时候高度不对。如何是好呢？因为本项目是单页应用，所以 app.vue 文件的生命周期不管页面如何跳转都存在。所以我把上面计算 <code>--vh</code> 的逻辑放入了 app.vue 的 <code>mounted</code> 生命周期。然后在 <code>updated</code> 的时候，再去获取一下当前的 <code>innerHeight</code> 的值，这样保证了每个页面试图的高度是正常的，不会受到 safari 是否有工具栏或者地址栏而影响。这里最大的心得就是充分利用好生命周期！！！</p>
+<hr>
+<h5 id="IOS-橡皮筋"><a href="#IOS-橡皮筋" class="headerlink" title="IOS 橡皮筋"></a>IOS 橡皮筋</h5><p>我想应该有很多开发同学和我一样有被 IOS Safari 的橡皮筋效果恶心到吧~~~</p>
+<p>在这个项目的做题页面，因为 UI 出于样式考虑，想要一个屏幕显示完整不允许滚动和首页类似，而橡皮筋效果才不管你那么多呢，只要你拉他就一定能给你抬一个高度出来，甚烦！！！</p>
+<p>于是我在这个页面写下了这样的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.scrollTop = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'touchmove'</span>, bodyScroll, &#123;</span><br><span class="line">  passive: <span class="literal">false</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bodyScroll</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  event.preventDefault();</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>确实管用了不少，这个页面没有橡皮筋效果了，你以为完美了吗？太天真了！！！！</p>
+<p>随着测试的深入，发现只要前一个页面用了橡皮筋效果，最后到这个页面依旧保持，只要你不手动把橡皮筋还原，真TM恶心，我真是口吐芬芳。所以归纳一下现在的问题就是：</p>
+<ul>
+<li><p>首页要禁止掉橡皮筋效果</p>
+</li>
+<li><p>禁止的同时不能影响它局部可以滚动的要求</p>
+</li>
+</ul>
+<p>这个是真难！我真的前前后后搞了很久，如果像上面代码那样禁止掉默认行为肯定不行，局部无法滚动，最后的最后，终于让我熬出来了。<code>Talk is cheap, show me the code.</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">  <span class="keyword">this</span>.width = <span class="built_in">window</span>.innerWidth</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.width &lt; <span class="number">1024</span>) &#123;</span><br><span class="line">    <span class="built_in">document</span>.body.style.position = <span class="string">'fixed'</span>;</span><br><span class="line">    <span class="built_in">document</span>.body.style.top = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">document</span>.body.style.left = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">document</span>.body.style.width = <span class="string">'100%'</span>;</span><br><span class="line">    <span class="built_in">document</span>.body.style.height = <span class="string">'100%'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">beforeDestroy() &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.width &lt; <span class="number">1024</span>) &#123;</span><br><span class="line">    <span class="built_in">document</span>.body.style.position = <span class="string">'inherit'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>只需要把 <code>body</code> 的 position 设置为 <code>fixed</code> 并且在销毁这个组件的时候还原 <code>position</code> 的值就可以了。</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/TechnologyBlog.github.io/2020/03/10/联想项目Review/" style="float: left;">
+        ← 联想项目Review
+    </a>
+    
+    
+    <a class="pull-right" href="/TechnologyBlog.github.io/2019/11/22/css-扫盲专区/">
+        css 扫盲专区 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By MOMO. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/Mooooom713" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/TechnologyBlog.github.io/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/TechnologyBlog.github.io/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/TechnologyBlog.github.io/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/TechnologyBlog.github.io/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+            <style>
+.local-search-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: rgba(255, 255, 255, .9);
+  color: #333;
+  z-index: 9999;
+  border-radius: 5px;
+  overflow: scroll;
+}
+#local-search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #151515;
+  background-color: initial;
+}
+.search-result-list {
+  list-style: none;
+  padding-left: 0;
+}
+.search-result-list > li {
+  margin-top: 15px;
+  border-bottom: 1px solid #ddd;
+  transition: all ease .3s;
+}
+.search-result-list > li:hover {
+  border-bottom: 1px solid gray;
+}
+.search-result-title {
+  font-size: 16px;
+}
+.search-result {
+  line-height: 20px;
+}
+.search-keyword {
+  font-weight: normal;
+  color: #c00;
+}
+
+@media (min-width: 890px) {
+  .popup-btn-close {
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    border: 1px solid #151515;
+    padding: 0px 10px;
+    border-top-left-radius: 8px;
+    cursor: pointer;
+    transition: all ease .3s;
+  }
+  .popup-btn-close:hover {
+    background: #151515;
+    opacity: .9;
+    color: #fff;
+  }
+}
+@media (max-width: 890px) {
+  .popup-btn-close {
+    font-size: 0;
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px #888;
+    cursor: pointer;
+  }
+  .popup-btn-close::after {
+    content: '←';
+    color: #151515;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+  }
+}
+</style>
+
+<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="local-search-header clearfix">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+          <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+        </div>
+      </div>
+      <div id="local-search-result"></div>
+    </div>
+  </div>
+</div>
+
+<script src="/TechnologyBlog.github.io/js/ziploader.js"></script>
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // get search zip version
+    $.get('/TechnologyBlog.github.io/searchVersion.txt?t=' + (+new Date()), function(res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson () {
+      initLoad(['/TechnologyBlog.github.io/search.zip'], {
+        loadOptions: {
+          success: function(obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function(e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions:{
+          'json':'application/json'
+        }
+      })
+    }
+
+
+    // search function;
+    var searchFunc = function(search_id, content_id) {
+      'use strict';
+
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function() {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function(data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title ? data.title.trim() : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content ? data.content.trim().replace(/<[^>]+>/g,"") : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function(keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0, position = [], index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+
+            // show search results
+
+            if (isMatch) {
+              // sort index by position of keyword
+
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+
+              // merge hits into slices
+
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+
+                  // move to next position of hit
+
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {
+                  hits: hits,
+                  start: start,
+                  end: end,
+                  searchTextCount: searchTextCountInSlice
+                };
+              }
+
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if(start < 0){
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if(end > content.length){
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+
+              // sort slices in content by search text's count and hits' count
+
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+
+              // select top N slices in content
+
+              var upperBound = parseInt('2');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+
+              // highlight title and content
+
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+
+              var resultItem = '';
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+              } else {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+              }
+
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "'>" +
+                  "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                  "...</p>" + "</a>";
+              });
+
+              resultItem += "</li>";
+              resultItems.push({
+                item: resultItem,
+                searchTextCount: searchTextCount,
+                hitCount: hitCount,
+                id: resultItems.length
+              });
+            }
+          })
+        };
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<ul class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</ul>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+
+      // remove loading animation
+      $('body').css('overflow', '');
+
+      proceedsearch();
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        $('.sb-close').click();
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+      
+</body>
+</html>
